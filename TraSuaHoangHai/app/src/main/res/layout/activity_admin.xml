@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/trasua"
-    tools:context=".Admin.ActivityAdmin">
+    tools:context=".manage.ActivityAdmin">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintTitle"

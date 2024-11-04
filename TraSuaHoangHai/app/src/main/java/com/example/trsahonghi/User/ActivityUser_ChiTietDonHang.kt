@@ -7,11 +7,9 @@ import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.trsahonghi.Admin.RvAdapter_ChiTietDonHang
-import com.example.trsahonghi.R
+import com.example.trsahonghi.manage.RvAdapter_ChiTietDonHang
 import com.example.trsahonghi.databinding.ActivityUserChiTietDonHangBinding
 import com.example.trsahonghi.model.DonHang
-import com.example.trsahonghi.model.DonHangAdmin
 import com.example.trsahonghi.model.TraSua
 import com.google.firebase.database.*
 
