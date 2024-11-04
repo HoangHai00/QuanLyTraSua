@@ -35,9 +35,9 @@ class ActivityThongTin : AppCompatActivity() {
             if (bundle != null) {
                 val sdt = bundle.getString("SDT")
                 for (user in ds) {
-                    if (user.sdt == sdt) {
+                    if (user.account == sdt) {
                         // Cập nhật giao diện với tên của người dùng
-                        binding.txtName.text = user.tenTK
+                        binding.txtName.text = user.name
                         userMain = user
                         break
                     }
@@ -96,7 +96,7 @@ class ActivityThongTin : AppCompatActivity() {
         val matKhauMoi = binding.edtMatKhauMoi.text.toString()
         val xacNhanMatKhau = binding.edtXNMatKhauMoi.text.toString()
 
-        if (matKhauCu != userMain.matKhau) {
+        if (matKhauCu != userMain.password) {
             Toast.makeText(this, "Mật khẩu không đúng!", Toast.LENGTH_SHORT).show()
         } else if (!isValidMatKhauMoi(matKhauMoi)) {
             Toast.makeText(
@@ -109,7 +109,7 @@ class ActivityThongTin : AppCompatActivity() {
                 .show()
         } else {
             // Cập nhật mật khẩu mới vào đối tượng userMain
-            userMain.matKhau = matKhauMoi
+            userMain.password = matKhauMoi
 
             // Cập nhật dữ liệu lên Firebase
             val userRef = dbRef.child(userMain.id ?: "")

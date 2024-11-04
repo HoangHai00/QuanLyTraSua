@@ -4,5 +4,18 @@
     <string name="common_close">Đóng</string>
     <string name="common_cancel">Hủy</string>
 
+    <string name="title_login">Đăng Nhập</string>
+    <string name="title_register">Đăng Ký</string>
+    <string name="title">Trà Sữa Hoàng Hải</string>
+    <string name="password">Mật Khẩu</string>
+    <string name="sdt">Số điện thoại</string>
+    <string name="forgot_password">Quên Mật Khẩu</string>
+    <string name="app_notify_title">Thông báo</string>
+
+    // notification
+    <string name="login_success">Đăng nhập thành công</string>
+    <string name="login_failed">Tài khoản hoặc mật khẩu không đúng</string>
+    <string name="error_firebase">Xin lỗi! Hệ thống hiện đang gián đoạn. Vui lòng thử lại sau</string>
+
 
 </resources>

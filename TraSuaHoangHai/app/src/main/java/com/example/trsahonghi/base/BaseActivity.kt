@@ -306,16 +306,6 @@ abstract class BaseActivity : AppCompatActivity(), BaseScreen, ScreenNavigator {
     }
 
 
-
-
-
-
-
-
-
-
-
-
     fun popBackStack(flags: Int) {
         popBackStack(null, flags)
     }

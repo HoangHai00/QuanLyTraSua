@@ -90,8 +90,8 @@ class ActivityDatHang : AppCompatActivity(), ClickItem {
         var name = ""
 
         for (user in ds) {
-            if (user.sdt == sdt) {
-                name = user.tenTK.toString()
+            if (user.account == sdt) {
+                name = user.name.toString()
                 break
             }
 

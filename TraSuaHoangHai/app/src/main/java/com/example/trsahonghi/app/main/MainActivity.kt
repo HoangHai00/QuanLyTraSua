@@ -12,6 +12,7 @@ import com.example.trsahonghi.databinding.ActivityMainBinding
 import com.example.trsahonghi.model.User
 import com.google.firebase.database.*
 import com.example.trsahonghi.R
+import com.example.trsahonghi.login.LoginFragment
 
 
 class MainActivity : BaseDataBindActivity<ActivityMainBinding, MainContract.Presenter>(),
@@ -53,14 +54,10 @@ class MainActivity : BaseDataBindActivity<ActivityMainBinding, MainContract.Pres
 
             }
         })
-        // hiển thị giao diện đăng nhập
-        DangNhap()
-        // hiển thị giao diện đăng Ký
-        DangKy()
     }
 
     override fun initData() {
-        TODO("Not yet implemented")
+        replaceFragment(LoginFragment.newInstance(),R.id.fl_main)
     }
 
     private fun DangNhap() {
@@ -78,7 +75,7 @@ class MainActivity : BaseDataBindActivity<ActivityMainBinding, MainContract.Pres
 
                 var isLoginSuccessful = false
                 for (user in ds) {
-                    if (user.sdt == sdt && user.matKhau == matKhau) {
+                    if (user.account == sdt && user.password == matKhau) {
                         // Tìm thấy trùng khớp
                         isLoginSuccessful = true
                         break
@@ -132,7 +129,7 @@ class MainActivity : BaseDataBindActivity<ActivityMainBinding, MainContract.Pres
                 val soDienThoai = binding.edtDKSDT.text.toString()
                 var isLoginSuccessful = false
                 for (user in ds) {
-                    if (user.sdt == soDienThoai) {
+                    if (user.account == soDienThoai) {
                         // Tìm thấy trùng khớp
                         isLoginSuccessful = true
                         break

@@ -69,10 +69,9 @@ abstract class BaseDataBindFragment<T : ViewDataBinding, K : BasePresenter> : Ba
         super.onDestroy()
     }
 
-    fun getBaseActivity(): AppCompatActivity {
-        return activity as? BaseActivity ?: MainActivity.self()
+    fun getBaseActivity(): BaseActivity{
+        return (activity as? BaseActivity) ?: MainActivity.self()
     }
-
 
     protected abstract fun getLayoutId(): Int
 
