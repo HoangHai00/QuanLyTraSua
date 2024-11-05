@@ -11,8 +11,8 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import com.example.trsahonghi.app.main.MainActivity
-import com.example.trsahonghi.Util.Constants
+import com.example.trsahonghi.ui.app.main.MainActivity
+import com.example.trsahonghi.util.Constants
 
 
 abstract class BaseDataBindActivity<T : ViewDataBinding, K> : BaseActivity(), AppBehaviorOnServiceError, BackClickHandler {

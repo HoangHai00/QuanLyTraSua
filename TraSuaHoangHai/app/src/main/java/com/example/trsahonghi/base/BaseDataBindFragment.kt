@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import com.example.trsahonghi.app.main.MainActivity
+import com.example.trsahonghi.ui.app.main.MainActivity
 
 
 abstract class BaseDataBindFragment<T : ViewDataBinding, K : BasePresenter> : BaseFragment(),

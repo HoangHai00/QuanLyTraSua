@@ -14,12 +14,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import com.example.trsahonghi.R
-import com.example.trsahonghi.Util.ActivityUtils
-import com.example.trsahonghi.Util.Constants
-import com.example.trsahonghi.Util.LifeCycleExt.launchWhenResumed
-import com.example.trsahonghi.dialog.AlertDialogListener
-import com.example.trsahonghi.dialog.AlertNewFragment
-import com.example.trsahonghi.loading.LoadingDialog
+import com.example.trsahonghi.util.ActivityUtils
+import com.example.trsahonghi.util.Constants
+import com.example.trsahonghi.util.LifeCycleExt.launchWhenResumed
+import com.example.trsahonghi.widget.dialog.AlertDialogListener
+import com.example.trsahonghi.widget.dialog.AlertNewFragment
+import com.example.trsahonghi.widget.loading.LoadingDialog
 
 abstract class BaseActivity : AppCompatActivity(), BaseScreen, ScreenNavigator {
     private val mLoadingDialog by lazy {

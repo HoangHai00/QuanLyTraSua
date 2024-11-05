@@ -8,7 +8,7 @@ import androidx.annotation.IdRes
 import androidx.annotation.NonNull
 import androidx.annotation.StringRes
 import androidx.fragment.app.DialogFragment
-import com.example.trsahonghi.dialog.AlertDialogListener
+import com.example.trsahonghi.widget.dialog.AlertDialogListener
 
 abstract class BaseDialogFragment : DialogFragment(), BaseScreen {
 

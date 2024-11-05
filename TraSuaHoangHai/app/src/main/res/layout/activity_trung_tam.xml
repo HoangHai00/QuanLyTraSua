@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".app.ActivityTrungTam">
+    tools:context=".ui.app.ActivityTrungTam">
 
 
     <androidx.core.widget.NestedScrollView
