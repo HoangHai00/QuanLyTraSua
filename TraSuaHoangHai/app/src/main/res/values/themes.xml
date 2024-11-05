@@ -60,4 +60,10 @@
         <item name="windowActionBar">false</item>
         <item name="android:windowSoftInputMode">stateHidden</item>
     </style>
+    <style name="text_body_md_default">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/gray_text_181C1F</item>
+    </style>
+
 </resources>

@@ -9,9 +9,10 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/trasua2">
+        >
 
         <TextView
+            android:visibility="gone"
             android:id="@+id/txtTieuDe"
             android:layout_width="195dp"
             android:layout_height="wrap_content"
@@ -31,7 +32,7 @@
 
         <!-- đăng nhập-->
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:visibility="visible"
+            android:visibility="gone"
             android:id="@+id/constraintLogin"
             android:layout_width="match_parent"
             android:layout_height="200dp"
@@ -226,7 +227,7 @@
         <!-- button đăng nhập-->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintBtnLogin"
-            android:visibility="visible"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginTop="252dp"
@@ -348,6 +349,16 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </FrameLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
