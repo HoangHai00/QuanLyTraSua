@@ -41,6 +41,7 @@ abstract class BaseRecyclerViewAdapter<E, VDB : ViewDataBinding>(private val onC
 
         viewHolder.itemView.setOnClickListener {
             onClickListener?.invoke(item, position)
+            notifyItemChanged(position)
         }
     }
 

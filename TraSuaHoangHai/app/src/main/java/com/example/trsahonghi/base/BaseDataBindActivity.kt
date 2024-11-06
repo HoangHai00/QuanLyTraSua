@@ -11,7 +11,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import com.example.trsahonghi.ui.app.main.MainActivity
+import com.example.trsahonghi.ui.main.MainActivity
 import com.example.trsahonghi.util.Constants
 
 

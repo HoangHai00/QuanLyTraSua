@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.app.ActivityTrungTam">
+    tools:context=".ui.home.ActivityTrungTam">
 
 
     <androidx.core.widget.NestedScrollView
@@ -28,7 +28,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="88dp"
                 android:layout_marginRight="20dp"
-                android:background="@drawable/custom_timkiem"
+                android:background="@drawable/custom_search"
                 android:imeOptions="actionDone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.4"
@@ -94,7 +94,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_marginTop="28dp"
-                android:background="@drawable/custom_vien_layout"
+                android:background="@drawable/bg_promotion"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -145,11 +145,11 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/custom_vien_vi_tri"
+                android:background="@drawable/bg_location"
                 app:layout_constraintBottom_toTopOf="@+id/tim_mon_an"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.23">
+                app:layout_constraintVertical_bias="0.218">
 
 
                 <ImageButton
@@ -233,8 +233,8 @@
         android:id="@+id/cv_gio_hang"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:background="@drawable/custom_vien_layout"
-        android:visibility="gone"
+        android:background="@drawable/bg_promotion"
+        android:visibility="visible"
         app:layout_constraintBaseline_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -258,7 +258,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="#ffffff"
-                app:srcCompat="@drawable/ic_gio_hang" />
+                app:srcCompat="@drawable/ic_cart" />
 
             <TextView
                 android:id="@+id/txtSoLuongTrongGioHang"
@@ -277,7 +277,7 @@
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/custom_btn_thanh_toan"
+            android:background="@drawable/bg_btn_pay"
             android:text="Trang thanh toán . 22.000đ"
             android:textAllCaps="false"
             android:textColor="#ffffff"
@@ -373,7 +373,7 @@
                 android:id="@+id/lnM"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/custom_vien_layout"
+                android:background="@drawable/bg_promotion"
                 android:orientation="horizontal">
 
                 <RadioButton
@@ -398,7 +398,7 @@
                 android:id="@+id/lnL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/custom_vien_layout"
+                android:background="@drawable/bg_promotion"
                 android:orientation="horizontal">
 
                 <RadioButton
@@ -425,7 +425,7 @@
             android:id="@+id/constraintChontop"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:background="@drawable/custom_vien_layout"
+            android:background="@drawable/bg_promotion"
             app:layout_constraintBaseline_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -450,7 +450,7 @@
                     android:layout_height="20dp"
                     android:layout_weight="1"
                     android:background="#E3DAD5"
-                    app:srcCompat="@drawable/ic_giam" />
+                    app:srcCompat="@drawable/ic_minus" />
 
                 <TextView
                     android:id="@+id/txtSoLuongTP"
@@ -467,7 +467,7 @@
                     android:layout_height="20dp"
                     android:layout_weight="1"
                     android:background="#D2374A"
-                    app:srcCompat="@drawable/ic_them" />
+                    app:srcCompat="@drawable/ic_add" />
 
             </LinearLayout>
 
@@ -477,7 +477,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:background="@drawable/custom_btn_thanh_toan"
+                android:background="@drawable/bg_btn_pay"
                 android:text="Chọn topping"
                 android:textAllCaps="false"
                 android:textColor="#ffffff"

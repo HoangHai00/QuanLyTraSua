@@ -31,6 +31,10 @@
     <color name="text_normal">@color/gray_text_594B45</color>
     <color name="red_text_FF4D4D">#FF4D4D</color>
     <color name="black_alpha_text_24">#3D000000</color>
+    <color name="grey">#808080</color>
+    <color name="gray_E7E7E7">#E7E7E7</color>
+    <color name="black_alpha_border_8">#14000000</color>
+
 
 
 </resources>

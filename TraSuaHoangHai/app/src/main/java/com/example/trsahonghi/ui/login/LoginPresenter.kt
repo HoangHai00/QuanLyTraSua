@@ -22,7 +22,7 @@ class LoginPresenter(
     override fun login() {
         view.showLoading()
 
-        database.addValueEventListener(object : ValueEventListener {
+        database.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 view.hideLoading()
                 if (snapshot.exists()) {

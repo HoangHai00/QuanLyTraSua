@@ -6,14 +6,16 @@ import com.example.trsahonghi.R
 import com.example.trsahonghi.util.CommonToast
 import com.example.trsahonghi.base.BaseDataBindFragment
 import com.example.trsahonghi.databinding.FragmentLoginBinding
+import com.example.trsahonghi.ui.home.homegroup.HomeGroupFragment
 import com.example.trsahonghi.ui.register.user.RegisterFragment
 
 class LoginFragment : BaseDataBindFragment<FragmentLoginBinding, LoginContract.Presenter>(),
     LoginContract.View {
 
-        companion object{
-            fun newInstance() = LoginFragment()
-        }
+    companion object {
+        fun newInstance() = LoginFragment()
+    }
+
     override fun getLayoutId(): Int = R.layout.fragment_login
 
     override fun initView() {
@@ -22,7 +24,7 @@ class LoginFragment : BaseDataBindFragment<FragmentLoginBinding, LoginContract.P
                 mPresenter?.login()
             }
             btnRegister.setOnClickListener {
-            openFragment(RegisterFragment.newInstance())
+                openFragment(RegisterFragment.newInstance())
             }
         }
 
@@ -35,6 +37,7 @@ class LoginFragment : BaseDataBindFragment<FragmentLoginBinding, LoginContract.P
     }
 
     override fun loginSuccessful() {
+        openFragment(HomeGroupFragment.newInstance())
         CommonToast.showToast(
             requireContext(),
             getString(R.string.login_success),
@@ -53,7 +56,7 @@ class LoginFragment : BaseDataBindFragment<FragmentLoginBinding, LoginContract.P
     }
 
     override fun openFragment(fragment: Fragment) {
-        getBaseActivity().replaceFragment(fragment, R.id.fl_main)
+        getBaseActivity().replaceFragment(fragment, R.id.flMain)
     }
 
     override fun errorFirebase() {

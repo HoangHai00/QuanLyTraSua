@@ -37,7 +37,22 @@
 
     // format
     <string name="text_limit_input_character">%d/%d ký tự</string>
+
+    // title
     <string name="confirm">Xác nhận</string>
+    <string name="title_hello">Trà Sữa Hoàng Hải Xin Chào!</string>
+    <string name="best_sell">Các món hot gần đây</string>
+    <string name="promotion">Mã Giảm Giá</string>
+    <string name="see_more">Xem thêm</string>
+    <string name="your_location">Vị trí của bạn</string>
+    <string name="address">Địa chỉ</string>
+    <string name="list_food">Danh sách món</string>
+    <string name="quantity">Số lượng:</string>
+    <string name="choose_topping">Chọn topping</string>
+    <string name="size_m">Size M</string>
+    <string name="size_l">Size L</string>
+    <string name="select_size">Chọn size</string>
+    <string name="zero">10000</string>
 
 
 </resources>
