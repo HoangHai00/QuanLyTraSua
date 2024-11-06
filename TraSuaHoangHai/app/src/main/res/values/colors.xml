@@ -21,6 +21,16 @@
     <color name="orange_text_F99D1C">#F99D1C</color>
     <color name="orange_link_FFBF4E">#FFBF4E</color>
     <color name="brown_link_884D30">#884D30</color>
+    <color name="blue_96D6FF">#96D6FF</color>
+    <color name="text_disable">#3D000000</color>
+    <color name="text_brand">#6E361A</color>
+    <color name="brown_F6D8CD">#F6D8CD</color>
+    <color name="text_subtle">#746B67</color>
+    <color name="black_alpha_border_6">#0F000000</color>
+    <color name="brown_link_5B260C">#5B260C</color>
+    <color name="text_normal">@color/gray_text_594B45</color>
+    <color name="red_text_FF4D4D">#FF4D4D</color>
+    <color name="black_alpha_text_24">#3D000000</color>
 
 
 </resources>

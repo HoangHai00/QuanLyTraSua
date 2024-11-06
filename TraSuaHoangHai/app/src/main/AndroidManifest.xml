@@ -16,70 +16,70 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
         <activity
-            android:name=".manage.ActivityThongKe"
+            android:name=".ui.manage.ActivityThongKe"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".User.ActivityUser_ChiTietDonHang"
+            android:name=".ui.user.ActivityUser_ChiTietDonHang"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".User.ActivityUserList"
+            android:name=".ui.user.ActivityUserList"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".manage.ActivityChiTietDonHang"
+            android:name=".ui.manage.ActivityChiTietDonHang"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".manage.ActivityListDonHang"
+            android:name=".ui.manage.ActivityListDonHang"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".manage.ActivityAdmin"
+            android:name=".ui.manage.ActivityAdmin"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".User.ActivityThongTin"
+            android:name=".ui.user.ActivityThongTin"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".User.ActivityDatHang"
+            android:name=".ui.user.ActivityDatHang"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".app.ActivityTrungTam"
+            android:name=".ui.app.ActivityTrungTam"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".app.main.MainActivity"
+            android:name=".ui.app.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

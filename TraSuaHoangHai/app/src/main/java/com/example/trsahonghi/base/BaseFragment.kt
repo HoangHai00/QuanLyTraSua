@@ -12,9 +12,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentResultListener
 import com.example.trsahonghi.R
-import com.example.trsahonghi.Util.LifeCycleExt.launchWhenResumed
-import com.example.trsahonghi.Util.getBackStackEntryIndex
-import com.example.trsahonghi.dialog.AlertDialogListener
+import com.example.trsahonghi.util.LifeCycleExt.launchWhenResumed
+import com.example.trsahonghi.util.getBackStackEntryIndex
+import com.example.trsahonghi.widget.dialog.AlertDialogListener
 
 
 abstract class BaseFragment : Fragment(), BaseScreen, ScreenNavigator {
