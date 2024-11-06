@@ -71,7 +71,7 @@
         android:id="@+id/cv_gio_hang"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:background="@drawable/custom_vien_layout"
+        android:background="@drawable/bg_promotion"
         app:layout_constraintBaseline_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

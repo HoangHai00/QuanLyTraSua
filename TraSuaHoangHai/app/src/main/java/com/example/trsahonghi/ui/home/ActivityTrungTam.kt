@@ -1,4 +1,4 @@
-package com.example.trsahonghi.ui.app
+package com.example.trsahonghi.ui.home
 
 import android.app.Activity
 import android.content.Intent

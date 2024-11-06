@@ -1,4 +1,4 @@
-package com.example.trsahonghi.ui.app.main
+package com.example.trsahonghi.ui.main
 
 import com.example.trsahonghi.base.CommonPresenter
 

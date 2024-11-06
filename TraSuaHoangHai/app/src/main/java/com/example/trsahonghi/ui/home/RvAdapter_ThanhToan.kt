@@ -1,4 +1,4 @@
-package com.example.trsahonghi.ui.app
+package com.example.trsahonghi.ui.home
 
 import android.icu.text.NumberFormat
 import android.view.LayoutInflater
@@ -9,11 +9,11 @@ import com.example.trsahonghi.ClickItem
 import com.example.trsahonghi.databinding.ItemTraSuaBinding
 import com.example.trsahonghi.api.model.TraSua
 
-class RvAdapter_TraSua(
-    var ds: List<TraSua>,
+class RvAdapter_ThanhToan(
+    var dsDonhang: List<TraSua>,
     private val onItemClickItem: ClickItem
-
-    ) : RecyclerView.Adapter<RvAdapter_TraSua.TraSuaViewHolder>() {
+):RecyclerView.Adapter<RvAdapter_ThanhToan.TraSuaViewHolder>()
+{
     inner class TraSuaViewHolder(val binding: ItemTraSuaBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(itemTraSuaBinding: TraSua) {
@@ -26,13 +26,7 @@ class RvAdapter_TraSua(
             binding.txtTenMon.text = itemTraSuaBinding.tenMon
             binding.txtGia.text = numberFormat(itemTraSuaBinding.giaMon.toDouble())
             binding.txtSoLuong.text = itemTraSuaBinding.soLuong.toString()
-
-            if (itemTraSuaBinding.loatTP == -1){
-                binding.txtSize.visibility = View.GONE
-            }
-            else{
-                binding.txtSize.visibility = View.VISIBLE
-            }
+            binding.txtSize.visibility = View.VISIBLE
             if (itemTraSuaBinding.loatTP == 0){
                 binding.txtSize.text = "- M"
             }
@@ -46,22 +40,21 @@ class RvAdapter_TraSua(
 
             if (itemTraSuaBinding.soLuong == 0) {
                 binding.imbtnGiamSoLuong.visibility = View.GONE
-                binding.txtSize.visibility = View.GONE
             }
 
         }
 
     }
 
-    // ctrl+i
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TraSuaViewHolder {
         val binding = ItemTraSuaBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return TraSuaViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: TraSuaViewHolder, position: Int) {
-        val itemTraSuaBinding = ds[position]
+        val itemTraSuaBinding = dsDonhang[position]
         holder.bind(itemTraSuaBinding)
+
         holder.binding.imbtnTangSoLuong.setOnClickListener {
             onItemClickItem.onItemClickTang(position)
 
@@ -71,14 +64,11 @@ class RvAdapter_TraSua(
             onItemClickItem.onItemClickGiam(position)
 
         }
-
-
     }
 
     override fun getItemCount(): Int {
-        return ds.size
+        return dsDonhang.size
     }
-
 
     // sử dụng numberFormat đặt định dạng hàng nghìn, triệu là "." sau thập phân là ","
     fun numberFormat(a: Double): String {
@@ -86,5 +76,4 @@ class RvAdapter_TraSua(
         val formattedNumber = numberFormat.format(a)
         return formattedNumber.toString()
     }
-
 }

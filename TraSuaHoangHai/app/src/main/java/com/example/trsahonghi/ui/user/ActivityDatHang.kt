@@ -10,8 +10,8 @@ import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.trsahonghi.ui.app.ActivityTrungTam
-import com.example.trsahonghi.ui.app.RvAdapter_ThanhToan
+import com.example.trsahonghi.ui.home.ActivityTrungTam
+import com.example.trsahonghi.ui.home.RvAdapter_ThanhToan
 import com.example.trsahonghi.ClickItem
 import com.example.trsahonghi.databinding.ActivityDatHangBinding
 import com.example.trsahonghi.api.model.DonHang

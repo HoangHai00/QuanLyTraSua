@@ -29,6 +29,7 @@ class RegisterFragment :
         mPresenter = RegisterPresenter(this).apply {
             mBinding?.presenter = this
         }
+        mBinding?.view = this
     }
 
 
