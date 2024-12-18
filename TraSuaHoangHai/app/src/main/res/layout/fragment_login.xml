@@ -144,7 +144,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
                 android:background="@drawable/custom_btn"
-                android:text="@string/title_register"
+                android:text="@string/register"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.816"
                 app:layout_constraintStart_toStartOf="parent"

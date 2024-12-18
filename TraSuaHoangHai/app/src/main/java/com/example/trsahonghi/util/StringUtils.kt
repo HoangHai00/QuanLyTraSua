@@ -2,22 +2,168 @@ package com.example.trsahonghi.util
 
 import android.widget.EditText
 import java.util.regex.Pattern
+import java.text.DecimalFormat
 
 object StringUtils {
     private val ACCENTED_MAP: Map<Char, String> = createAccentedMap()
+    private val NUMBER_FORMAT2 = DecimalFormat("#,###")
+
 
     fun createAccentedMap(): Map<Char, String> {
         val accentedMap = mutableMapOf<Char, String>()
-        val accents = charArrayOf('á', 'à', 'ạ', 'ã', 'ả', 'ă', 'â', 'đ', 'é', 'è', 'ẻ', 'ẽ', 'ẹ', 'ê', 'í', 'ì', 'ĩ',
-            'ỉ', 'ị', 'ò', 'ó', 'ỏ', 'õ', 'ọ', 'ô', 'ơ', 'ù', 'ú', 'ủ', 'ũ', 'ụ', 'ư', 'ỳ', 'ý', 'ỷ', 'ỹ', 'ỵ',
-            'Á', 'À', 'Ạ', 'Ã', 'Ả', 'Ă', 'Â', 'Đ', 'É', 'È', 'Ẻ', 'Ẽ', 'Ẹ', 'Ê', 'Í', 'Ì', 'Ĩ', 'Ỉ', 'Ị', 'Ò',
-            'Ó', 'Ỏ', 'Õ', 'Ọ', 'Ô', 'Ơ', 'Ù', 'Ú', 'Ủ', 'Ũ', 'Ụ', 'Ư', 'Ỳ', 'Ý', 'Ỷ', 'Ỹ', 'Ỵ')
+        val accents = charArrayOf(
+            'á',
+            'à',
+            'ạ',
+            'ã',
+            'ả',
+            'ă',
+            'â',
+            'đ',
+            'é',
+            'è',
+            'ẻ',
+            'ẽ',
+            'ẹ',
+            'ê',
+            'í',
+            'ì',
+            'ĩ',
+            'ỉ',
+            'ị',
+            'ò',
+            'ó',
+            'ỏ',
+            'õ',
+            'ọ',
+            'ô',
+            'ơ',
+            'ù',
+            'ú',
+            'ủ',
+            'ũ',
+            'ụ',
+            'ư',
+            'ỳ',
+            'ý',
+            'ỷ',
+            'ỹ',
+            'ỵ',
+            'Á',
+            'À',
+            'Ạ',
+            'Ã',
+            'Ả',
+            'Ă',
+            'Â',
+            'Đ',
+            'É',
+            'È',
+            'Ẻ',
+            'Ẽ',
+            'Ẹ',
+            'Ê',
+            'Í',
+            'Ì',
+            'Ĩ',
+            'Ỉ',
+            'Ị',
+            'Ò',
+            'Ó',
+            'Ỏ',
+            'Õ',
+            'Ọ',
+            'Ô',
+            'Ơ',
+            'Ù',
+            'Ú',
+            'Ủ',
+            'Ũ',
+            'Ụ',
+            'Ư',
+            'Ỳ',
+            'Ý',
+            'Ỷ',
+            'Ỹ',
+            'Ỵ'
+        )
 
-        val replacements = arrayOf("as", "af", "aj", "ax", "ar", "aw", "aa", "dd", "es", "ef", "er", "ex",
-            "ej", "ee", "is", "if", "ix", "ir", "ij", "of", "os", "or", "ox", "oj", "oo", "ow", "uf",
-            "us", "ur", "ux", "uj", "uw", "yf", "ys", "yr", "yx", "yj", "AS", "AF", "AJ", "AX", "AR",
-            "AW", "AA", "DD", "ES", "EF", "ER", "EX", "EJ", "EE", "IS", "IF", "IX", "IR", "IJ", "OF",
-            "OS", "OR", "OX", "OJ", "OO", "OW", "UF", "US", "UR", "UX", "UJ", "UW", "YF", "YS", "YR", "YX", "YJ")
+        val replacements = arrayOf(
+            "as",
+            "af",
+            "aj",
+            "ax",
+            "ar",
+            "aw",
+            "aa",
+            "dd",
+            "es",
+            "ef",
+            "er",
+            "ex",
+            "ej",
+            "ee",
+            "is",
+            "if",
+            "ix",
+            "ir",
+            "ij",
+            "of",
+            "os",
+            "or",
+            "ox",
+            "oj",
+            "oo",
+            "ow",
+            "uf",
+            "us",
+            "ur",
+            "ux",
+            "uj",
+            "uw",
+            "yf",
+            "ys",
+            "yr",
+            "yx",
+            "yj",
+            "AS",
+            "AF",
+            "AJ",
+            "AX",
+            "AR",
+            "AW",
+            "AA",
+            "DD",
+            "ES",
+            "EF",
+            "ER",
+            "EX",
+            "EJ",
+            "EE",
+            "IS",
+            "IF",
+            "IX",
+            "IR",
+            "IJ",
+            "OF",
+            "OS",
+            "OR",
+            "OX",
+            "OJ",
+            "OO",
+            "OW",
+            "UF",
+            "US",
+            "UR",
+            "UX",
+            "UJ",
+            "UW",
+            "YF",
+            "YS",
+            "YR",
+            "YX",
+            "YJ"
+        )
 
         for (i in accents.indices) {
             accentedMap[accents[i]] = replacements[i]
@@ -63,13 +209,38 @@ object StringUtils {
         }
         return newString.toString()
     }
+
+    fun formatMoney(value: String): String {
+        return formatMoney(value, returnOriginIfEmptyValue = false)
+    }
+
+    fun formatMoney(value: String, returnOriginIfEmptyValue: Boolean): String {
+        if (returnOriginIfEmptyValue && value.isEmpty()) return value
+        return try {
+            NUMBER_FORMAT2.format(parseDouble(value))
+        } catch (e: Exception) {
+            ""
+        }
+    }
+
+    fun parseDouble(value: String): Double {
+        return try {
+            value.toDouble()
+        } catch (e: Exception) {
+            0.0
+        }
+    }
+
+
     fun replaceUniCodeToText(lastText: Char): String {
         val replaceString = ACCENTED_MAP[lastText]
         return replaceString ?: lastText.toString()
     }
+
     fun isValidLength(input: String): Boolean {
         return input.length in 6..32
     }
+
     fun isSameString(input: String, output: String): Boolean {
         return input == output
     }

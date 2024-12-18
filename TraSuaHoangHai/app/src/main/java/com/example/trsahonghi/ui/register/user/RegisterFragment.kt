@@ -29,6 +29,7 @@ class RegisterFragment :
         mPresenter = RegisterPresenter(this).apply {
             mBinding?.presenter = this
         }
+        mBinding?.view = this
     }
 
 
@@ -43,7 +44,7 @@ class RegisterFragment :
 
 
     override fun openFragment(fragment: Fragment) {
-        getBaseActivity().replaceFragment(fragment, R.id.fl_main)
+        getBaseActivity().replaceFragment(fragment, R.id.flMain)
     }
 
     override fun showDiaLogInValid(message: String) {
