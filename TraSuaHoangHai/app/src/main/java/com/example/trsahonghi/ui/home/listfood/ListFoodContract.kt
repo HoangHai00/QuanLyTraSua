@@ -12,6 +12,7 @@ interface ListFoodContract {
     }
 
     interface Presenter : BasePresenter {
+        fun updateIngredientType(bubbleTea: BubbleTea)
         fun listFood(): LiveData<MutableList<BubbleTea>>
         fun getListFood()
         fun addAmountBubbleTea(bubbleTea: BubbleTea)

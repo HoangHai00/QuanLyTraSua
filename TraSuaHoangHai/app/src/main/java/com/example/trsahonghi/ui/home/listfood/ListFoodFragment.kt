@@ -5,6 +5,7 @@ import com.example.trsahonghi.api.model.BubbleTea
 import com.example.trsahonghi.base.BaseDataBindFragment
 import com.example.trsahonghi.databinding.FragmentListFoodBinding
 import com.example.trsahonghi.ui.home.listfood.adapter.ListFoodAdapter
+import com.example.trsahonghi.ui.home.listfood.bottomsheet.IngredientTypeBottomSheet
 
 class ListFoodFragment :
     BaseDataBindFragment<FragmentListFoodBinding, ListFoodContract.Presenter>(),
@@ -14,7 +15,9 @@ class ListFoodFragment :
     }
 
     private val adapter: ListFoodAdapter by lazy {
-        ListFoodAdapter(
+        ListFoodAdapter(onItemClickListener = { item, pos ->
+            showBottomSheet(item)
+        },
             onAddClickListener = { item, pos ->
                 mPresenter?.addAmountBubbleTea(item)
                 adapter.notifyItemChanged(pos)
@@ -44,6 +47,14 @@ class ListFoodFragment :
     }
 
     override fun showBottomSheet(bubbleTea: BubbleTea) {
+        val ingredientTypeBottomSheet =
+            IngredientTypeBottomSheet.newInstance(bubbleTea) { bubbleTea ->
+                bubbleTea?.let {
+                    mPresenter?.updateIngredientType(it)
+                }
+            }
 
+
+        ingredientTypeBottomSheet.show(parentFragmentManager, IngredientTypeBottomSheet.TAG)
     }
 }

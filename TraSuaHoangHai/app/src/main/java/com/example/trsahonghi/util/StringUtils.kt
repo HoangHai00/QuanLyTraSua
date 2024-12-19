@@ -251,5 +251,8 @@ object StringUtils {
                 input.replace("[^0-9+]".toRegex(), "").length == 10
     }
 
+    fun getSizeString(size: String?): String {
+        return if (size.isNullOrEmpty()) "" else "Size $size"
+    }
 
 }
