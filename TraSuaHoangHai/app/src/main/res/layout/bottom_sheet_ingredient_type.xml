@@ -70,6 +70,7 @@
                 tools:srcCompat="@tools:sample/avatars" />
 
             <RadioGroup
+                android:id="@+id/cbGroup"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -89,6 +90,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:layout_marginBottom="8dp"
+                    android:checked="true"
                     android:text="@string/size_m" />
 
                 <RadioButton
@@ -97,6 +99,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
+                    android:layout_marginBottom="8dp"
                     android:text="@string/size_l" />
 
 
@@ -105,6 +108,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
                 android:orientation="vertical"
                 android:paddingStart="16dp">
 
@@ -130,20 +134,22 @@
                         android:background="#D2374A"
                         app:srcCompat="@drawable/ic_minus" />
 
-                    <TextView
-                        android:id="@+id/txtQuantity"
+                    <EditText
+                        android:id="@+id/edtQuantity"
                         style="@style/text_body_md_strong"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginEnd="8dp"
                         android:background="@drawable/custom_title"
+                        android:inputType="number"
                         android:paddingStart="8dp"
                         android:paddingTop="4dp"
                         android:paddingEnd="8dp"
                         android:paddingBottom="4dp"
-                        android:text="@string/zero"
-                        android:textColor="#D2374A" />
+                        android:text="@={presenter.quantity}"
+                        android:textColor="#D2374A"
+                        tools:text="1" />
 
                     <ImageButton
                         android:id="@+id/btnAdd"

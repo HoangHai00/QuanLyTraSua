@@ -38,19 +38,28 @@ class ListFoodPresenter(
         if (bubbleTea.ingredientType?.type.isNullOrEmpty()) {
             view.showBottomSheet(bubbleTea)
         } else {
-            bubbleTea.nameTea?.let { updateIngredientType(it, IngredientType("1", "M")) }
+            val currentQuantity = bubbleTea.ingredientType?.quantity?.toIntOrNull() ?: 1
+                bubbleTea.ingredientType?.quantity = (currentQuantity + 1).toString()
+            updateIngredientType(bubbleTea)
         }
 
     }
 
     override fun subAmountBubbleTea(bubbleTea: BubbleTea) {
-        bubbleTea.nameTea?.let { updateIngredientType(it, IngredientType()) }
+        val currentQuantity = bubbleTea.ingredientType?.quantity?.toIntOrNull() ?: 1
+        if (currentQuantity > 1) {
+            bubbleTea.ingredientType?.quantity = (currentQuantity - 1).toString()
+        }else{
+            bubbleTea.ingredientType = IngredientType()
+        }
+        updateIngredientType(bubbleTea)
     }
 
-    fun updateIngredientType(name: String, newIngredientType: IngredientType) {
+
+    override fun updateIngredientType(bubbleTea: BubbleTea) {
         _listFood.value = _listFood.value?.map { item ->
-            if (item.nameTea == name) {
-                item.copy(ingredientType = newIngredientType)
+            if (item.nameTea == bubbleTea.nameTea) {
+                item.copy(ingredientType = bubbleTea.ingredientType)
             } else {
                 item
             }

@@ -1,18 +1,43 @@
 package com.example.trsahonghi.ui.home.listfood.bottomsheet
 
+import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
+import android.view.inputmethod.EditorInfo
 import com.example.trsahonghi.R
-import com.example.trsahonghi.api.model.IngredientType
+import com.example.trsahonghi.api.model.BubbleTea
 import com.example.trsahonghi.databinding.BottomSheetIngredientTypeBinding
+import com.example.trsahonghi.util.Constants
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.lpb.lienviet24h.ui.basedatabind.BaseDataBindBottomSheet
 
 class IngredientTypeBottomSheet(
-    private val resultIngredientType: ((IngredientType?) -> Unit)? = null
-) :
-    BaseDataBindBottomSheet<BottomSheetIngredientTypeBinding, IngredientTypeContract.Presenter>(),
+    private val resultIngredientType: ((BubbleTea?) -> Unit)? = null
+) : BaseDataBindBottomSheet<BottomSheetIngredientTypeBinding, IngredientTypeContract.Presenter>(),
     IngredientTypeContract.View {
+
+    companion object {
+        const val TAG = "IngredientTypeBottomSheet"
+        private const val ARG_BUBBLE_TEA = "ARG_BUBBLE_TEA"
+        fun newInstance(
+            bubbleTea: BubbleTea,
+            resultIngredientType: ((BubbleTea?) -> Unit)?
+        ): IngredientTypeBottomSheet {
+            val args = Bundle().apply {
+                putParcelable(ARG_BUBBLE_TEA, bubbleTea)
+            }
+            val fragment = IngredientTypeBottomSheet(resultIngredientType)
+            fragment.arguments = args
+            return fragment
+        }
+    }
+
+    private val bubbleTea by lazy {
+        arguments?.getParcelable<BubbleTea>(ARG_BUBBLE_TEA)
+    }
+
     override val layoutRes: Int = R.layout.bottom_sheet_ingredient_type
 
 
@@ -34,11 +59,41 @@ class IngredientTypeBottomSheet(
         })
 
         binding.apply {
+            bubbleTea?.image?.let {
+                imgBubbleTea.setImageResource(it)
+            }
+            cbGroup.setOnCheckedChangeListener { group, checkedId ->
+                when (checkedId) {
+                    R.id.cbSizeM -> {
+                        presenter?.setType(Constants.Type.SIZE_M)
+                    }
+
+                    R.id.cbSizeL -> {
+                        presenter?.setType(Constants.Type.SIZE_L)
+                    }
+                }
+            }
+            when (bubbleTea?.ingredientType?.type) {
+                Constants.Type.SIZE_M -> binding.cbSizeM.isChecked = true
+                Constants.Type.SIZE_L -> binding.cbSizeL.isChecked = true
+                else -> binding.cbSizeM.isChecked = true
+            }
+            btnSub.setOnClickListener {
+                presenter?.subQuantity()
+            }
+            btnAdd.setOnClickListener {
+                presenter?.addQuantity()
+            }
+
             imgClose.setOnClickListener {
                 dismiss()
             }
+
             btnContinue.setOnClickListener {
-                resultIngredientType?.invoke(IngredientType("", ""))
+                presenter?.updateBubbleTea()
+                resultIngredientType?.invoke(
+                    presenter?.bubbleTea()?.value
+                )
                 dismiss()
             }
         }
@@ -46,7 +101,9 @@ class IngredientTypeBottomSheet(
     }
 
     override fun initData() {
-
+        presenter = IngredientTypePresenter(this, bubbleTea).apply {
+            binding.presenter = this
+        }
     }
 
     override fun showLoading() {}

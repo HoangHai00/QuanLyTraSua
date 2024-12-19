@@ -7,6 +7,7 @@ import com.example.trsahonghi.databinding.ItemListFoodBinding
 import com.lpb.lienviet24h.common.adapter.BaseRecyclerViewAdapter
 
 class ListFoodAdapter(
+    val onItemClickListener: ((BubbleTea, Int) -> Unit)? = null,
     val onAddClickListener: ((BubbleTea, Int) -> Unit)? = null,
     val onSubClickListener: ((BubbleTea, Int) -> Unit)? = null
 ) : AbsListAdapter<BubbleTea, ItemListFoodBinding>({ item1, item2 ->
@@ -21,13 +22,20 @@ class ListFoodAdapter(
         viewDataBinding: ItemListFoodBinding
     ) {
         viewDataBinding.apply {
+
             bubbleTea = item
             item.image?.let {
                 ivTea.setImageResource(it)
             }
+
+            ctlItem.setOnClickListener {
+                onItemClickListener?.invoke(item, position)
+            }
+
             btnAdd.setOnClickListener {
                 onAddClickListener?.invoke(item, position)
             }
+
             btnSub.setOnClickListener {
                 onSubClickListener?.invoke(item, position)
             }

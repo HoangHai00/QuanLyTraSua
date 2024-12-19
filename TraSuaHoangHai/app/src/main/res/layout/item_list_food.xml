@@ -16,6 +16,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ctlItem"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_margin="4dp"
@@ -63,11 +64,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:layout_marginTop="8dp"
             android:text="@{StringUtils.INSTANCE.formatMoney(bubbleTea.price)}"
             android:textColor="#D2374A"
             app:layout_constraintStart_toEndOf="@+id/ivTea"
-            app:layout_constraintTop_toBottomOf="@+id/txtName"
+            app:layout_constraintTop_toBottomOf="@+id/txtSize"
             tools:text="10000đ" />
 
         <ImageButton
@@ -87,7 +87,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:text='@{bubbleTea.ingredientType.position != null ? String.valueOf(bubbleTea.ingredientType.position) : "0"}'
+            android:text='@{bubbleTea.ingredientType.quantity != null ? String.valueOf(bubbleTea.ingredientType.quantity) : "0"}'
             android:textColor="#D2374A"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btnSub"
@@ -107,14 +107,14 @@
 
         <TextView
             android:id="@+id/txtSize"
-            style="@style/text_body_md_strong"
+            style="@style/text_body_md_default"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:text="@{bubbleTea.ingredientType.type}"
+            android:text="@{StringUtils.INSTANCE.getSizeString(bubbleTea.ingredientType.type)}"
             android:visibility="@{bubbleTea.ingredientType.type != null? View.VISIBLE : View.GONE}"
-            app:layout_constraintStart_toEndOf="@+id/txtName"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivTea"
+            app:layout_constraintTop_toBottomOf="@+id/txtName"
             tools:text="- M" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
