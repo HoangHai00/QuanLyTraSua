@@ -1,4 +1,6 @@
 package com.example.trsahonghi.base
 
-class BaseException: RuntimeException() {
-}
+class BaseException(
+    val code: Int,
+    override val message: String
+) : RuntimeException(message)
