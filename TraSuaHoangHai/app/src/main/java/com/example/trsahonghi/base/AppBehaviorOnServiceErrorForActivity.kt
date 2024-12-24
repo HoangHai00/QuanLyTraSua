@@ -1,20 +1,35 @@
 package com.example.trsahonghi.base
 
-class AppBehaviorOnServiceErrorForActivity(private val activity: BaseActivity) : AppBehaviorOnServiceError {
+import android.os.Bundle
+import com.example.trsahonghi.R
+import com.example.trsahonghi.util.ResultCode
+
+class AppBehaviorOnServiceErrorForActivity(private val activity: BaseActivity) :
+    AppBehaviorOnServiceError {
     override fun handleServiceError(exception: BaseException) {
-        when (exception.code) {
-            401 -> {
-                // Xử lý lỗi Unauthorized (401)
-//                activity.showToast("Unauthorized: Please login again.")
-//                activity.navigateToLoginScreen()
+        when (exception.code.toString()) {
+            ResultCode.ERROR_401 -> {
+                activity.showAlertDialogNew(
+                    icon = R.drawable.ic_unsuccessfull,
+                    title = activity.getString(R.string.app_notify_title),
+                    message = activity.getString(R.string.sever_error),
+                    textTopButton = activity.getString(R.string.common_close),
+                    autoCancel = false,
+                )
             }
-            500 -> {
-                // Xử lý lỗi Server (500)
-//                activity.showToast("Server error: Please try again later.")
+
+            ResultCode.ERROR_500 -> {
+                activity.showAlertDialogNew(
+                    icon = R.drawable.ic_unsuccessfull,
+                    title = activity.getString(R.string.app_notify_title),
+                    message = activity.getString(R.string.sever_error),
+                    textTopButton = activity.getString(R.string.common_close),
+                    autoCancel = false,
+                )
             }
+
             else -> {
-                // Xử lý lỗi khác
-//                activity.showToast("Error: ${exception.message}")
+                exception.message?.let { activity.showMessage(it) }
             }
         }
     }

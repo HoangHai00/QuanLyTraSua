@@ -2,6 +2,7 @@ package com.example.trsahonghi.ui.register.user
 
 import androidx.fragment.app.Fragment
 import com.example.trsahonghi.R
+import com.example.trsahonghi.api.repository.account.AccountRepositoryImpl
 import com.example.trsahonghi.base.BaseDataBindFragment
 import com.example.trsahonghi.databinding.FragmentRegisterBinding
 import com.example.trsahonghi.util.CommonToast
@@ -26,7 +27,10 @@ class RegisterFragment :
     }
 
     override fun initData() {
-        mPresenter = RegisterPresenter(this).apply {
+        mPresenter = RegisterPresenter(
+            this,
+            AccountRepositoryImpl()
+        ).apply {
             mBinding?.presenter = this
         }
         mBinding?.view = this
@@ -39,7 +43,7 @@ class RegisterFragment :
             getString(R.string.register_success),
             R.drawable.ic_checked_green
         )
-        onBackClicked()
+//        onBackClicked()
     }
 
 
