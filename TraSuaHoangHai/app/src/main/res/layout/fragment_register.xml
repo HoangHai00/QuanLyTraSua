@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -39,6 +40,7 @@
             android:paddingTop="40dp"
             android:paddingEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
@@ -77,30 +79,18 @@
                 app:layout_constraintTop_toBottomOf="@+id/edtAccount"
                 app:textInput="@={presenter.password}" />
 
-            <com.example.trsahonghi.widget.edittext.ClearableTextInput
-                android:id="@+id/edtReEnterPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:hint="@string/re_enter_password"
-                app:labelTitle="@string/re_enter_password"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edtPassword"
-                app:textInput="@={presenter.rePassword}" />
-
             <Button
                 android:id="@+id/btnConfirm"
                 style="@style/Button.New.Primary"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="16dp"
                 android:onClick="@{() -> presenter.register()}"
                 android:text="@string/confirm"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.153"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edtReEnterPassword" />
+                app:layout_constraintTop_toBottomOf="@+id/llDate" />
 
             <Button
                 android:id="@+id/btnCancel"
@@ -108,12 +98,47 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="28dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="16dp"
                 android:onClick="@{() -> view.onBackClicked()}"
                 android:text="@string/cancel"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/btnConfirm"
-                app:layout_constraintTop_toBottomOf="@+id/edtReEnterPassword" />
+                app:layout_constraintTop_toBottomOf="@+id/llDate" />
+
+            <LinearLayout
+                android:id="@+id/llDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edtPassword">
+
+                <TextView
+                    style="@style/text_body_md_strong"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:text="@string/txt_title_date"
+                    android:textColor="@color/text_subtle" />
+
+                <TextView
+                    style="@style/text_body_md_strong"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:text="@{presenter.date}"
+                    android:textColor="@color/text_normal"
+                    tools:text="2001-01-01" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@color/grey_two" />
+            </LinearLayout>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

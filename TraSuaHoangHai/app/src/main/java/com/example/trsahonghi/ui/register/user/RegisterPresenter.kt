@@ -1,30 +1,31 @@
 package com.example.trsahonghi.ui.register.user
 
-import android.widget.Toast
+import TokenManager
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.trsahonghi.R
-import com.example.trsahonghi.api.model.User
+import com.example.trsahonghi.api.repository.account.AccountRepository
 import com.example.trsahonghi.base.CommonPresenter
 import com.example.trsahonghi.util.StringUtils
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 
 class RegisterPresenter(
-    private val view: RegisterContract.View
+    private val view: RegisterContract.View,
+    private val accountRepository: AccountRepository
 ) : CommonPresenter(view, view), RegisterContract.Presenter {
 
     private var _fullName = MutableLiveData("")
     private var _account = MutableLiveData("")
     private var _passWord = MutableLiveData("")
-    private var _rePassWord = MutableLiveData("")
-    private val database = FirebaseDatabase.getInstance().getReference("AccountDatabase")
+    private var _date = MutableLiveData("")
 
     override fun fullName() = _fullName
     override fun account() = _account
     override fun password() = _passWord
-    override fun rePassword() = _rePassWord
+    override fun date() = _date
+    override fun setDate(date: String) {
+        _date.value = date
+    }
 
     override fun register() {
         val validationResult = validateInputs()
@@ -32,54 +33,28 @@ class RegisterPresenter(
             view.showDiaLogInValid(validationResult)
             return
         }
-        checkAccountExist()
-    }
 
-    private fun updateFirebase() {
-        view.showLoading()
-        val userId = database.push().key
-        val user = User(
-            userId,
-            _fullName.value.orEmpty(),
-            _account.value.orEmpty(),
-            _passWord.value.orEmpty()
-        )
-
-        userId?.let {
-            database.child(it).setValue(user)
-                .addOnCompleteListener {
-                    view.hideLoading()
-                    view.registerSuccessful()
-                }
-                .addOnFailureListener {
-                    view.hideLoading()
-                    view.showDiaLogInValid(view.getStringRes(R.string.error_internet))
-                }
-        }
-    }
-
-    private fun checkAccountExist() {
-        view.showLoading()
-        database.addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                view.hideLoading()
-                if (snapshot.exists()) {
-                    val userList = snapshot.children.mapNotNull { it.getValue(User::class.java) }
-                    if (userList.any { it.account == _account.value }) {
-                        view.showDiaLogInValid(view.getStringRes(R.string.account_already_registered))
-                    } else {
-                        updateFirebase()
+        baseCallApi(accountRepository.register(
+            _account.value,
+            _fullName.value,
+            _passWord.value,
+            _date.value,
+            "User"
+        ),
+            onSuccess = { response ->
+                view.getViewContext()?.let {
+                    response?.accessToken?.let { it1 ->
+                        TokenManager.saveToken(
+                            it,
+                            it1
+                        )
                     }
-                } else {
-                    updateFirebase()
                 }
-            }
+                view.registerSuccessful()
+            },
+            onError = {
 
-            override fun onCancelled(error: DatabaseError) {
-                view.hideLoading()
-                view.showDiaLogInValid(view.getStringRes(R.string.error_firebase))
-            }
-        })
+            })
     }
 
     private fun validateInputs(): String? {
@@ -87,7 +62,7 @@ class RegisterPresenter(
             !StringUtils.isValidLength(_fullName.value.orEmpty()) -> view.getStringRes(R.string.in_valid_full_name)
             !StringUtils.isValidPhoneNumber(_account.value.orEmpty()) -> view.getStringRes(R.string.in_valid_account)
             !StringUtils.isValidLength(_passWord.value.orEmpty()) -> view.getStringRes(R.string.in_valid_pass_word)
-            _passWord.value != _rePassWord.value -> view.getStringRes(R.string.in_valid_re_pass_word)
+            _date.value.isNullOrEmpty() -> view.getStringRes(R.string.in_valid_date)
             else -> null
         }
     }
