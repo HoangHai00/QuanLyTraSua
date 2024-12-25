@@ -5,6 +5,7 @@ import com.example.trsahonghi.databinding.ActivityMainBinding
 import com.example.trsahonghi.R
 import com.example.trsahonghi.ui.home.homegroup.HomeGroupFragment
 import com.example.trsahonghi.ui.login.LoginFragment
+import com.example.trsahonghi.ui.register.user.RegisterFragment
 
 
 class MainActivity : BaseDataBindActivity<ActivityMainBinding, MainContract.Presenter>(),
@@ -23,7 +24,7 @@ class MainActivity : BaseDataBindActivity<ActivityMainBinding, MainContract.Pres
     override fun getLayoutId(): Int = R.layout.activity_main
 
     override fun initView() {
-        replaceFragment(HomeGroupFragment.newInstance(),R.id.flMain,false)
+        replaceFragment(LoginFragment.newInstance(),R.id.flMain,false)
     }
 
     override fun initData() {

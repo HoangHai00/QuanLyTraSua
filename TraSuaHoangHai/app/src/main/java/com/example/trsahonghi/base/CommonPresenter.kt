@@ -58,6 +58,4 @@ open class CommonPresenter @JvmOverloads constructor(
             }
         })
     }
-
-
 }
