@@ -43,7 +43,7 @@ class RegisterPresenter(
         ),
             onSuccess = { response ->
                 view.getViewContext()?.let {
-                    response?.accessToken?.let { it1 ->
+                    response?.data?.let { it1 ->
                         TokenManager.saveToken(
                             it,
                             it1

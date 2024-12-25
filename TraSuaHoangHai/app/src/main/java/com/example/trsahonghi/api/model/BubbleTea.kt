@@ -8,5 +8,6 @@ data class BubbleTea(
     var image: Int? = null,
     var nameTea: String? = null,
     var price: String? = null,
+    val description: String? = null,
     var ingredientType: IngredientType? = IngredientType()
 ) : Parcelable

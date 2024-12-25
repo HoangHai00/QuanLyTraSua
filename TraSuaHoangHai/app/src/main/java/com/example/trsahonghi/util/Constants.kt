@@ -10,6 +10,7 @@ object Constants {
     }
 
     object BundleConstants {
+        const val LIST_FOOD = "LIST_FOOD"
         const val SUPER_STATE = "SUPER_STATE"
         const val SPARSE_STATE_KEY = "SPARSE_STATE_KEY"
 

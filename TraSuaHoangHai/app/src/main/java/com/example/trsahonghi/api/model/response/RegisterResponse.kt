@@ -5,7 +5,18 @@ import com.google.gson.annotations.SerializedName
 
 data class RegisterResponse(
     @Expose
-    @SerializedName("accessToken")
-    val accessToken: String,
+    @SerializedName("success")
+    var success: Boolean? = null,
 
+    @Expose
+    @SerializedName("message")
+    var message: String? = null,
+
+    @Expose
+    @SerializedName("data")
+    var data: String? = null,
+
+    @Expose
+    @SerializedName("errors")
+    var errors: String? = null
 )

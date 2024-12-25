@@ -1,11 +1,16 @@
 package com.example.trsahonghi.ui.home.listfood
 
+import android.content.Intent
 import com.example.trsahonghi.R
 import com.example.trsahonghi.api.model.BubbleTea
+import com.example.trsahonghi.api.repository.food.FoodRepositoryImpl
 import com.example.trsahonghi.base.BaseDataBindFragment
+import com.example.trsahonghi.base.OrderEnabledLocalBroadcastManager
 import com.example.trsahonghi.databinding.FragmentListFoodBinding
 import com.example.trsahonghi.ui.home.listfood.adapter.ListFoodAdapter
 import com.example.trsahonghi.ui.home.listfood.bottomsheet.IngredientTypeBottomSheet
+import com.example.trsahonghi.util.Constants
+import com.example.trsahonghi.util.StringUtils
 
 class ListFoodFragment :
     BaseDataBindFragment<FragmentListFoodBinding, ListFoodContract.Presenter>(),
@@ -38,11 +43,32 @@ class ListFoodFragment :
     }
 
     override fun initData() {
-        mPresenter = ListFoodPresenter(this).apply {
+        mPresenter = ListFoodPresenter(
+            this,
+            FoodRepositoryImpl()
+        ).apply {
             getListFood()
         }
-        mPresenter?.listFood()?.observe(this) {
-            adapter.submitList(it)
+
+        mPresenter?.listFood()?.observe(this) { listFood ->
+            listFood?.let {
+                notifyFoodCardState(it)
+                adapter.submitList(it)
+            }
+        }
+    }
+
+    private fun notifyFoodCardState(listFood: MutableList<BubbleTea>) {
+        mPresenter?.getBroadcastAction(listFood)?.let { (action, filteredList) ->
+            val broadcastIntent = Intent(action).apply {
+                putExtra(
+                    Constants.BundleConstants.LIST_FOOD,
+                    StringUtils.objectToString(filteredList)
+                )
+            }
+            context?.let {
+                OrderEnabledLocalBroadcastManager.getInstance(it).sendBroadcast(broadcastIntent)
+            }
         }
     }
 

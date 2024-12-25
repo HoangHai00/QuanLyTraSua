@@ -7,9 +7,11 @@
 
         <variable
             name="presenter"
-            type="com.example.trsahonghi.ui.home.homegroup.HomeGroupPresenter" />
+            type="com.example.trsahonghi.ui.home.homegroup.HomeGroupContract.Presenter" />
 
         <import type="android.view.View" />
+
+        <import type="com.example.trsahonghi.util.StringUtils" />
 
     </data>
 
@@ -89,7 +91,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
                     android:gravity="center"
-                    android:text=""
+                    android:text="@{presenter.quantity}"
                     android:textColor="#60EFDB"
                     android:textSize="18sp"
                     tools:text="10" />
@@ -106,7 +108,7 @@
                 android:background="@drawable/bg_btn_pay"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
-                android:text=""
+                android:text="@{StringUtils.INSTANCE.formatPayment(presenter.totalAmount)}"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"

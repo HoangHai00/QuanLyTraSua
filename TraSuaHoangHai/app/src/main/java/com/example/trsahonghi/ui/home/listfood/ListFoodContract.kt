@@ -12,6 +12,7 @@ interface ListFoodContract {
     }
 
     interface Presenter : BasePresenter {
+        fun getBroadcastAction(listFood: MutableList<BubbleTea>): Pair<String, List<BubbleTea>>
         fun updateIngredientType(bubbleTea: BubbleTea)
         fun listFood(): LiveData<MutableList<BubbleTea>>
         fun getListFood()
