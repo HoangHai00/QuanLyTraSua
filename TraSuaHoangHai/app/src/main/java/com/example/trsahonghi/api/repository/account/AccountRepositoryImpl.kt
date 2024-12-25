@@ -38,4 +38,8 @@ class AccountRepositoryImpl(
             )
         )
     }
+
+    override fun loginToken(): Call<LoginResponse> {
+        return apiService.loginTokenAccount()
+    }
 }
