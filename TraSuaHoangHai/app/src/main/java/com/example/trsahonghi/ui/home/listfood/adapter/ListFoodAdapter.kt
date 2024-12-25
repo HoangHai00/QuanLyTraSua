@@ -1,6 +1,8 @@
 package com.example.trsahonghi.ui.home.listfood.adapter
 
+import com.bumptech.glide.Glide
 import com.example.trsahonghi.R
+import com.example.trsahonghi.api.Config
 import com.example.trsahonghi.api.model.BubbleTea
 import com.example.trsahonghi.base.AbsListAdapter
 import com.example.trsahonghi.databinding.ItemListFoodBinding
@@ -24,10 +26,12 @@ class ListFoodAdapter(
         viewDataBinding.apply {
 
             bubbleTea = item
-            item.image?.let {
-                ivTea.setImageResource(it)
-            }
 
+            Glide.with(ivTea.context)
+                .load(item.id?.let { Config.getImageUrl(it) })
+                .placeholder(R.drawable.ic_null)
+                .error(R.drawable.ic_null)
+                .into(ivTea)
             ctlItem.setOnClickListener {
                 onItemClickListener?.invoke(item, position)
             }

@@ -81,15 +81,6 @@ class LoginFragment : BaseDataBindFragment<FragmentLoginBinding, LoginContract.P
 
     }
 
-    override fun loginFailed() {
-        getBaseActivity().showAlertDialogNew(
-            icon = null,
-            title = getString(R.string.app_notify_title),
-            message = getString(R.string.login_failed),
-            textTopButton = getString(R.string.common_close),
-        )
-    }
-
     override fun openFragment(fragment: Fragment) {
         getBaseActivity().replaceFragment(fragment, R.id.flMain)
     }

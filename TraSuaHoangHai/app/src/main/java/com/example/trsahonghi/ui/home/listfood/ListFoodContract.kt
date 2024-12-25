@@ -8,12 +8,14 @@ import com.example.trsahonghi.base.BaseView
 
 interface ListFoodContract {
     interface View : BaseView, AppBehaviorOnServiceError {
-       fun showBottomSheet(bubbleTea: BubbleTea)
+        fun showBottomSheet(bubbleTea: BubbleTea)
     }
 
     interface Presenter : BasePresenter {
+        fun getBroadcastAction(listFood: MutableList<BubbleTea>): Pair<String, List<BubbleTea>>
         fun updateIngredientType(bubbleTea: BubbleTea)
         fun listFood(): LiveData<MutableList<BubbleTea>>
+        fun updateListFood(listFood: List<BubbleTea>)
         fun getListFood()
         fun addAmountBubbleTea(bubbleTea: BubbleTea)
         fun subAmountBubbleTea(bubbleTea: BubbleTea)

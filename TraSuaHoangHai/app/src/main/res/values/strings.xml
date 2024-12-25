@@ -7,6 +7,7 @@
 
     <string name="title_login">Đăng Nhập</string>
     <string name="title_register">Đăng Ký tài khoản</string>
+    <string name="title_payment">Thanh toán</string>
     <string name="register">Đăng Ký</string>
     <string name="title">Trà Sữa Hoàng Hải</string>
     <string name="password">Mật Khẩu</string>
@@ -20,6 +21,7 @@
     <string name="pass_word">Mật khẩu</string>
     <string name="edit_pass_word">Nhập mật khẩu</string>
     <string name="re_enter_password">Nhập lại mật khẩu</string>
+    <string name="image"></string>
 
     // notification
     <string name="login_success">Đăng nhập thành công</string>
@@ -31,6 +33,7 @@
     <string name="in_valid_re_pass_word">Mật khẩu không trùng khớp</string>
     <string name="in_valid_date">Bạn chưa chọn ngày tháng năm sinh</string>
     <string name="login_failed">Tài khoản hoặc mật khẩu không đúng</string>
+    <string name="register_failed">Số điện thoại đã được đăng ký</string>
     <string name="error_firebase">Xin lỗi! Hệ thống hiện đang gián đoạn. Vui lòng thử lại sau</string>
     <string name="error_internet">Vui lòng kiểm tra kết nối mạng</string>
     <string name="register_account">Đăng Ký Tài Khoản</string>
@@ -55,11 +58,24 @@
     <string name="list_food">Danh sách món</string>
     <string name="quantity">Số lượng:</string>
     <string name="choose_topping">Chọn topping</string>
+    <string name="shopping_cart">Giỏ hàng</string>
     <string name="size_m">Size M</string>
     <string name="size_l">Size L</string>
     <string name="select_size">Chọn size</string>
     <string name="zero">10000</string>
     <string name="txt_title_date">Chọn ngày sinh</string>
+    <string name="tv_cart">Giỏ Hàng</string>
+    <string name="txt_location">Địa chỉ giao hàng</string>
+    <string name="txt_total_price_of_the_dish">Tổng giá món :</string>
+    <string name="txt_shipping_fee">Phí giao hàng :</string>
+    <string name="txt_discount">Giảm giá :</string>
+    <string name="txt_total_payment">Tổng thanh toán :</string>
+    <string name="txt_add_voucher">Thêm voucher</string>
+    <string name="txt_select_voucher">Chọn voucher</string>
+    <string name="txt_list_food">Danh sách món :</string>
+    <string name="txt_qr">Mã QR</string>
+    <string name="txt_cash">Tiền mặt</string>
+    <string name="txt_x">x</string>
 
 
 </resources>

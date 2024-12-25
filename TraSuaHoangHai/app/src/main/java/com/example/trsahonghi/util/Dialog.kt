@@ -7,7 +7,10 @@ import java.util.*
 
 object Dialog {
     fun showDatePicker(context: Context, onDateSelected: (String) -> Unit) {
-        val calendar = Calendar.getInstance()
+        val defaultDate = Calendar.getInstance().apply {
+            set(2000, Calendar.JANUARY, 1)
+        }
+
         DatePickerDialog(
             context,
             { _, year, month, dayOfMonth ->
@@ -18,9 +21,10 @@ object Dialog {
                     SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(selectedDate.time)
                 onDateSelected(formattedDate)
             },
-            calendar.get(Calendar.YEAR),
-            calendar.get(Calendar.MONTH),
-            calendar.get(Calendar.DAY_OF_MONTH)
+            defaultDate.get(Calendar.YEAR),
+            defaultDate.get(Calendar.MONTH),
+            defaultDate.get(Calendar.DAY_OF_MONTH)
         ).show()
     }
+
 }

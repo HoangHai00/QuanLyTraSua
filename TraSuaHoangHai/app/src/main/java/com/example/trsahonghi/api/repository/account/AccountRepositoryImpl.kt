@@ -4,6 +4,7 @@ import com.example.trsahonghi.api.ApiService
 import com.example.trsahonghi.api.RetrofitInstance
 import com.example.trsahonghi.api.model.request.LoginRequest
 import com.example.trsahonghi.api.model.request.RegisterRequest
+import com.example.trsahonghi.api.model.response.AccountResponse
 import com.example.trsahonghi.api.model.response.LoginResponse
 import com.example.trsahonghi.api.model.response.RegisterResponse
 import retrofit2.Call
@@ -41,5 +42,9 @@ class AccountRepositoryImpl(
 
     override fun loginToken(): Call<LoginResponse> {
         return apiService.loginTokenAccount()
+    }
+
+    override fun getAccount(): Call<AccountResponse> {
+        return apiService.getAccount()
     }
 }
