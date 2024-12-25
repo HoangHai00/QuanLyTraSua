@@ -17,4 +17,6 @@ interface AccountRepository {
         phoneNumber: String?,
         password: String?,
     ): Call<LoginResponse>
+
+    fun loginToken():Call<LoginResponse>
 }

@@ -29,7 +29,7 @@ class AppBehaviorOnServiceErrorForActivity(private val activity: BaseActivity) :
             }
 
             else -> {
-                exception.message?.let { activity.showMessage(it) }
+                exception.message.let { activity.showMessage(it) }
             }
         }
     }
