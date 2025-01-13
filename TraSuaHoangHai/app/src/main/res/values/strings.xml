@@ -4,6 +4,8 @@
     <string name="common_close">Đóng</string>
     <string name="common_cancel">Hủy</string>
     <string name="common_success">Đồng ý</string>
+    <string name="common_finish">Đóng ứng dụng</string>
+    <string name="common_open_settings">Mở cài đặt hệ thống</string>
 
     <string name="title_login">Đăng Nhập</string>
     <string name="title_register">Đăng Ký tài khoản</string>
@@ -16,12 +18,21 @@
     <string name="app_notify_title">Thông báo</string>
     <string name="full_name">Họ và tên</string>
     <string name="edit_full_name">Nhập họ và tên</string>
+    <string name="address_placeholder">Tên đường, số nhà</string>
+    <string name="choose_location">Chọn Tỉnh/Thành Phố, Quận/Huyện, Phường/Xã</string>
+    <string name="choose_province_city">Chọn Tỉnh/Thành Phố</string>
+    <string name="province_city_with_placeholder">Tỉnh/Thành phố: %s</string>
+    <string name="district_with_placeholder">Quận/Huyện: %s</string>
+    <string name="ward_with_placeholder">Xã/Phường: %s</string>
+    <string name="choose_district">Chọn Quận/Huyện</string>
+    <string name="choose_ward">Chọn Xã/Phường</string>
+    <string name="enter_address">Nhập tên đường, số nhà</string>
     <string name="account">Số điện thoại</string>
     <string name="edit_account">Nhập số điện thoại</string>
     <string name="pass_word">Mật khẩu</string>
     <string name="edit_pass_word">Nhập mật khẩu</string>
     <string name="re_enter_password">Nhập lại mật khẩu</string>
-    <string name="image"></string>
+    <string name="search_content">Nhập nội dung tìm kiếm</string>
 
     // notification
     <string name="login_success">Đăng nhập thành công</string>
@@ -42,10 +53,14 @@
     <string name="sever_error">Hệ thống gián đoạn, vui lòng thử lại sau!</string>
     <string name="log_out">Bạn có muốn đăng xuất tài khoản</string>
     <string name="login_account_null">Số điện thoại và mật khẩu không được để trống</string>
+    <string name="location_permission_request">Vui lòng cung cấp quyền truy cập vị trí để sử dụng ứng dụng</string>
+    <string name="location_permission_required">Cần cung cấp quyền truy cập vị trí để sử dụng ứng dụng</string>
 
 
     // format
     <string name="text_limit_input_character">%d/%d ký tự</string>
+    <string name="text_address">Địa chỉ: %s</string>
+
 
     // title
     <string name="confirm">Xác nhận</string>

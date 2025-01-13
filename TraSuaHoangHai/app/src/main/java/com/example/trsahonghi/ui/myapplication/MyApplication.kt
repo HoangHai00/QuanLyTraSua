@@ -3,6 +3,7 @@ package com.example.trsahonghi.ui.myapplication
 import TokenManager
 import android.app.Application
 import android.content.Context
+import com.example.trsahonghi.util.SharedPreferencesUtils
 
 class MyApplication : Application() {
 
@@ -15,6 +16,7 @@ class MyApplication : Application() {
         super.onCreate()
         context = this // Gán context của ứng dụng
         TokenManager.init(this) // Khởi tạo TokenManager
+        SharedPreferencesUtils.init(this) // Khởi tạo SharedPreferencesUtils
     }
 }
 
