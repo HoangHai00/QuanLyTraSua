@@ -1,12 +1,16 @@
 package com.example.trsahonghi.util
 
 import android.widget.EditText
+import com.google.gson.Gson
 import java.util.regex.Pattern
 import java.text.DecimalFormat
+import com.google.gson.reflect.TypeToken
+import java.lang.reflect.Type
 
 object StringUtils {
     private val ACCENTED_MAP: Map<Char, String> = createAccentedMap()
     private val NUMBER_FORMAT2 = DecimalFormat("#,###")
+    private val gson: Gson = Gson()
 
 
     fun createAccentedMap(): Map<Char, String> {
@@ -254,5 +258,16 @@ object StringUtils {
     fun getSizeString(size: String?): String {
         return if (size.isNullOrEmpty()) "" else "Size $size"
     }
+
+    fun objectToString(obj: Any?): String {
+        return gson.toJson(obj)
+    }
+
+    fun <T> stringToObject(json: String, classType: Type): T {
+        return gson.fromJson(json, classType)
+    }
+
+    fun formatPayment(value: String): String =
+        "Tổng tiền: ${formatMoney(value)} VND"
 
 }

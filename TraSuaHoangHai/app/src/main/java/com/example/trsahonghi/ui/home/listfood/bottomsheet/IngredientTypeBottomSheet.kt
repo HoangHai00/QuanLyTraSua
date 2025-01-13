@@ -5,7 +5,9 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import com.bumptech.glide.Glide
 import com.example.trsahonghi.R
+import com.example.trsahonghi.api.Config
 import com.example.trsahonghi.api.model.BubbleTea
 import com.example.trsahonghi.databinding.BottomSheetIngredientTypeBinding
 import com.example.trsahonghi.util.Constants
@@ -62,6 +64,13 @@ class IngredientTypeBottomSheet(
             bubbleTea?.image?.let {
                 imgBubbleTea.setImageResource(it)
             }
+            Glide.with(imgBubbleTea.context)
+                .load(bubbleTea?.id?.let {
+                    Config.getImageUrl(it)
+                })
+                .placeholder(R.drawable.ic_null)
+                .error(R.drawable.ic_null)
+                .into(imgBubbleTea)
             cbGroup.setOnCheckedChangeListener { group, checkedId ->
                 when (checkedId) {
                     R.id.cbSizeM -> {

@@ -14,7 +14,6 @@ interface LoginContract {
         fun getStringRes(id: Int): String
         fun getViewContext(): Context?
         fun loginSuccessful()
-        fun loginFailed()
         fun openFragment(fragment: Fragment)
     }
 

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="bubbleTea"
+            type="com.example.trsahonghi.api.model.BubbleTea" />
+
+        <import type="android.view.View" />
+
+        <import type="com.example.trsahonghi.util.StringUtils" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ctlItem"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="4dp"
+        android:background="@drawable/bg_border_square_gray"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+
+        <ImageView
+            android:id="@+id/ivTea"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:adjustViewBounds="true"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@drawable/ic_launcher_background" />
+
+        <TextView
+            android:id="@+id/txtName"
+            style="@style/text_body_md_default"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="@{bubbleTea.nameTea}"
+            app:layout_constraintStart_toEndOf="@+id/txtX"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Tên Món" />
+
+        <TextView
+            android:id="@+id/txtGia"
+            style="@style/text_body_md_strong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@{StringUtils.INSTANCE.formatMoney(bubbleTea.price)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="10000đ" />
+
+        <TextView
+            android:id="@+id/txtQuantity"
+            style="@style/text_body_md_strong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text='@{bubbleTea.ingredientType.quantity != null ? String.valueOf(bubbleTea.ingredientType.quantity) : "0"}'
+            app:layout_constraintStart_toEndOf="@+id/ivTea"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="100" />
+
+        <TextView
+            android:id="@+id/txtSize"
+            style="@style/text_body_md_default"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@{StringUtils.INSTANCE.getSizeString(bubbleTea.ingredientType.type)}"
+            android:visibility="@{bubbleTea.ingredientType.type != null? View.VISIBLE : View.GONE}"
+            app:layout_constraintStart_toEndOf="@+id/txtName"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="- M" />
+
+        <TextView
+            android:id="@+id/txtX"
+            style="@style/text_body_md_strong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="@string/txt_x"
+            app:layout_constraintStart_toEndOf="@+id/txtQuantity"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
