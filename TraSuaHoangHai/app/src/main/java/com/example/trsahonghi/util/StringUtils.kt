@@ -1,10 +1,10 @@
 package com.example.trsahonghi.util
 
 import android.widget.EditText
+import com.example.trsahonghi.api.model.BubbleTea
 import com.google.gson.Gson
 import java.util.regex.Pattern
 import java.text.DecimalFormat
-import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type
 
 object StringUtils {
@@ -218,6 +218,15 @@ object StringUtils {
         return formatMoney(value, returnOriginIfEmptyValue = false)
     }
 
+    fun formatMoney(value: Int): String {
+        return formatMoney(value.toString())
+    }
+
+
+    fun formatMoney(value: Double): String {
+        return formatMoney(value.toString())
+    }
+
     fun formatMoney(value: String, returnOriginIfEmptyValue: Boolean): String {
         if (returnOriginIfEmptyValue && value.isEmpty()) return value
         return try {
@@ -267,7 +276,63 @@ object StringUtils {
         return gson.fromJson(json, classType)
     }
 
-    fun formatPayment(value: String): String =
-        "Tổng tiền: ${formatMoney(value)} VND"
+    fun formatTotalPayment(value: String): String =
+        "Tổng tiền: $value đ"
+
+
+    fun calculateTotalPrice(bubbleTeaList: List<BubbleTea>): String {
+        val totalPrice = bubbleTeaList.sumOf { tea ->
+            val quantity = tea.ingredientType?.quantity?.toDoubleOrNull() ?: 0.0
+            val price = tea.price?.toDoubleOrNull() ?: 0.0
+            val type = tea.ingredientType?.type
+
+            when (type) {
+                "M" -> price * quantity
+                "L" -> (price + 5000.0) * quantity
+                else -> 0.0
+            }
+        }
+        return formatMoney(totalPrice)
+    }
+
+    fun calculateItemPrice(tea: BubbleTea): String {
+        val quantity = tea.ingredientType?.quantity?.toDoubleOrNull() ?: 0.0
+        val price = tea.price?.toDoubleOrNull() ?: 0.0
+        val type = tea.ingredientType?.type
+
+        val itemPrice = when (type) {
+            "M" -> price * quantity
+            "L" -> (price + 5000.0) * quantity
+            else -> 0.0
+        }
+
+        return formatMoney(itemPrice)
+    }
+
+
+    fun appendCurrencySymbol(value: String): String {
+        return "$value đ"
+    }
+
+
+    fun parseMoney(value: String?): Int {
+        return value?.replace("[^0-9]".toRegex(), "")?.toIntOrNull() ?: 0
+    }
+
+    fun removeCommasAndDots(input: String): Int {
+        val cleanedString = input.replace("[,\\.]".toRegex(), "")
+        return cleanedString.toIntOrNull() ?: 0  // Nếu không chuyển đổi được, trả về 0
+    }
+
+    fun multiplyDoubleStrings(num1: String, num2: String): String {
+        return try {
+            val double1 = parseMoney(num1)
+            val double2 = parseMoney(num2)
+            formatMoney(double1 * double2 / 1000)
+        } catch (e: NumberFormatException) {
+            "Invalid input: one or both strings are not valid numbers."
+        }
+    }
+
 
 }

@@ -1,12 +1,9 @@
-package com.example.trsahonghi.ui.login
+package com.example.trsahonghi.ui.login.user
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.trsahonghi.R
 import com.example.trsahonghi.api.repository.account.AccountRepository
 import com.example.trsahonghi.base.CommonPresenter
-import com.example.trsahonghi.ui.myapplication.MyApplication
-import com.example.trsahonghi.util.StringUtils
 
 class LoginPresenter(
     private val view: LoginContract.View,

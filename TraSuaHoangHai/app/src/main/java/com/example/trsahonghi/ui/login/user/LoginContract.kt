@@ -1,8 +1,7 @@
-package com.example.trsahonghi.ui.login
+package com.example.trsahonghi.ui.login.user
 
 import android.content.Context
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.trsahonghi.base.AppBehaviorOnServiceError
 import com.example.trsahonghi.base.BasePresenter

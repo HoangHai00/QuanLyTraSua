@@ -8,13 +8,17 @@ object Constants {
         const val NOTIFY_HIDE_CART = "NOTIFY_HIDE_CARD"
         const val NOTIFY_GO_HOME = "NOTIFY_GO_HOME"
         const val NOTIFY_LIST_FOOD = "NOTIFY_LIST_FOOD"
+        const val NOTIFY_UPDATE_LOCATION = "NOTIFY_UPDATE_LOCATION"
+        const val NOTIFY_BACK_ALL_FRAGMENT = "NOTIFY_BACK_ALL_FRAGMENT"
     }
 
     object BundleConstants {
         const val LIST_FOOD = "LIST_FOOD"
+        const val UPDATE_LOCATION= "UPDATE_LOCATION"
         const val LIST_FOOD_CART = "LIST_FOOD_CART"
         const val SUPER_STATE = "SUPER_STATE"
         const val SPARSE_STATE_KEY = "SPARSE_STATE_KEY"
+        const val ITEM = "ITEM"
 
     }
 

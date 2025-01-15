@@ -5,15 +5,11 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.provider.Settings
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.example.trsahonghi.base.BaseDataBindActivity
 import com.example.trsahonghi.databinding.ActivityMainBinding
 import com.example.trsahonghi.R
-import com.example.trsahonghi.base.BaseActivity
-import com.example.trsahonghi.ui.home.homegroup.HomeGroupFragment
-import com.example.trsahonghi.ui.login.LoginFragment
-import com.example.trsahonghi.ui.register.user.RegisterFragment
+import com.example.trsahonghi.ui.login.user.LoginFragment
 import com.example.trsahonghi.widget.dialog.AlertDialogListener
 
 
@@ -35,7 +31,7 @@ class MainActivity : BaseDataBindActivity<ActivityMainBinding, MainContract.Pres
 
     override fun initView() {
         checkLocationPermission()
-        replaceFragment(LoginFragment.newInstance(), R.id.flMain, false)
+        replaceFragment(LoginFragment.newInstance(), R.id.flMain)
     }
 
     override fun initData() {
@@ -132,7 +128,7 @@ class MainActivity : BaseDataBindActivity<ActivityMainBinding, MainContract.Pres
 
 
     override fun onBackPressed() {
-        if (supportFragmentManager.backStackEntryCount == 0) {
+        if (supportFragmentManager.backStackEntryCount == 1) {
             finish()
         } else {
             super.onBackPressed()

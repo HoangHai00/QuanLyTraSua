@@ -5,9 +5,14 @@
 
     <data>
 
+        <variable
+            name="presenter"
+            type="com.example.trsahonghi.ui.home.promotion.DiscountContract.Presenter" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ctrlPromotion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
@@ -15,7 +20,6 @@
         android:padding="4dp">
 
         <TextView
-            android:id="@+id/textView"
             style="@style/text_body_md_strong"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -31,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:text=""
+            android:text="@{presenter.coupon}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.047"
             app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/see_more"
-            android:textColor="#60EFDB"
+            android:textColor="@color/brown_text_6E361A"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />

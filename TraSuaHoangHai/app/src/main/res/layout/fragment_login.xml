@@ -7,7 +7,7 @@
 
         <variable
             name="presenter"
-            type="com.example.trsahonghi.ui.login.LoginContract.Presenter" />
+            type="com.example.trsahonghi.ui.login.user.LoginContract.Presenter" />
 
     </data>
 
@@ -157,6 +157,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="@string/forgot_password"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.201"
                 app:layout_constraintStart_toStartOf="parent"

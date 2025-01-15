@@ -12,6 +12,8 @@
         <variable
             name="view"
             type="com.example.trsahonghi.ui.payment.PaymentContract.View" />
+
+        <import type="com.example.trsahonghi.util.StringUtils" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -82,7 +84,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/linearLayout"
+                        android:id="@+id/llLocation"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="20dp"
@@ -97,7 +99,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
-                            android:text=""
+                            android:text="@{presenter.info}"
                             tools:text="Hoàng Hải | 0359956016" />
 
                         <TextView
@@ -106,11 +108,12 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
                             android:layout_marginTop="4dp"
-                            android:text=""
+                            android:text="@{presenter.address}"
                             tools:text="225 Ngõ Quỳnh, Quỳnh Lôi, Hai Bà Trưng, Hà Nội" />
                     </LinearLayout>
 
                     <ImageView
+                        android:id="@+id/ivLocation"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -163,7 +166,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="end"
-                            android:text=""
+                            android:text="@{StringUtils.INSTANCE.appendCurrencySymbol(presenter.totalItemAmount)}"
                             tools:text="300.000d đ" />
                     </LinearLayout>
 
@@ -188,7 +191,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="end"
-                            android:text=""
+                            android:text="@{StringUtils.INSTANCE.appendCurrencySymbol(presenter.shippingFee)}"
                             tools:text="10.000d đ" />
                     </LinearLayout>
 
@@ -214,7 +217,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="end"
-                            android:text=""
+                            android:text="@{StringUtils.INSTANCE.appendCurrencySymbol(presenter.discountFee)}"
                             tools:text="20.000d đ" />
                     </LinearLayout>
 
@@ -240,7 +243,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="end"
-                            android:text=""
+                            android:text="@{StringUtils.INSTANCE.appendCurrencySymbol(presenter.totalAmount)}"
                             tools:text="2.000.000d đ" />
                     </LinearLayout>
 
@@ -280,6 +283,7 @@
                         android:text="@string/txt_add_voucher" />
 
                     <TextView
+                        android:id="@+id/txtVoucher"
                         style="@style/text_body_md_default"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -402,21 +406,22 @@
 
             </LinearLayout>
 
+
             <Button
-                android:id="@+id/button"
+                android:id="@+id/btnContinue"
                 style="@style/text_body_md_strong"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:background="@drawable/bg_brand_rounded"
-                android:text=""
+                android:text="@{presenter.placeOrder}"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/llPay"
-                tools:text="Đặt đơn - 2.000.000 đ" />
+                tools:text="Đặt đơn" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
