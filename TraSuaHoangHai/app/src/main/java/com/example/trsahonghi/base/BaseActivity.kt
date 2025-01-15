@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import com.example.trsahonghi.R
+import com.example.trsahonghi.ui.home.homegroup.HomeGroupFragment
 import com.example.trsahonghi.util.ActivityUtils
 import com.example.trsahonghi.util.Constants
 import com.example.trsahonghi.util.LifeCycleExt.launchWhenResumed
@@ -360,6 +361,20 @@ abstract class BaseActivity : AppCompatActivity(), BaseScreen, ScreenNavigator {
         ActivityUtils.hideSoftInput(this)
     }
 
+    @JvmOverloads
+    fun onBackAllFragments(closeDialog: Boolean = true) {
+        if (closeDialog) dismissAlertNewDialog()
+
+        // Quay về HomeGroupFragment và xóa tất cả các fragment phía trên nó
+        supportFragmentManager.popBackStack(
+            HomeGroupFragment::class.java.name,
+            0
+        )
+
+        ActivityUtils.hideSoftInput(this)
+    }
+
+
     fun openActivityForResult(clazz: Class<*>?, bundle: Bundle?, requestCode: Int) {
         val intent = Intent(this, clazz)
         if (bundle != null) {
@@ -410,6 +425,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseScreen, ScreenNavigator {
     fun showLongToast(message: String?) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
+
     fun removeAndReplaceFragment(fragment: Fragment, @IdRes containerViewId: Int) {
         val currentFragment = supportFragmentManager.findFragmentById(containerViewId)
         val transaction = supportFragmentManager.beginTransaction()
@@ -418,6 +434,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseScreen, ScreenNavigator {
             .addToBackStack(fragment.javaClass.name)
             .commitAllowingStateLoss()
     }
+
     fun removeFragment(fragment: Fragment?) {
         if (fragment != null) removeFragment(supportFragmentManager, fragment)
     }

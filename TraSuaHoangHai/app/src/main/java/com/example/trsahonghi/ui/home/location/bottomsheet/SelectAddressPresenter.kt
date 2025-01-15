@@ -1,7 +1,6 @@
 package com.example.trsahonghi.ui.home.location.bottomsheet
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import com.example.trsahonghi.R

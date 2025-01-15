@@ -83,7 +83,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/tv_cart"
-                    android:textColor="#60EFDB" />
+                    android:textColor="@color/brown_text_6E361A" />
 
                 <ImageButton
                     android:layout_width="wrap_content"
@@ -91,7 +91,7 @@
                     android:layout_margin="4dp"
                     android:adjustViewBounds="true"
                     android:background="@color/white"
-                    app:srcCompat="@drawable/ic_cart" />
+                    app:srcCompat="@drawable/ic_cart_v2" />
 
                 <TextView
                     android:id="@+id/txtQuantity"
@@ -101,7 +101,7 @@
                     android:layout_margin="4dp"
                     android:gravity="center"
                     android:text="@{presenter.quantity}"
-                    android:textColor="#60EFDB"
+                    android:textColor="@color/brown_text_6E361A"
                     android:textSize="18sp"
                     tools:text="10" />
 
@@ -117,7 +117,7 @@
                 android:background="@drawable/bg_btn_pay"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
-                android:text="@{StringUtils.INSTANCE.formatPayment(presenter.totalAmount)}"
+                android:text="@{StringUtils.INSTANCE.formatTotalPayment(presenter.totalAmount)}"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"

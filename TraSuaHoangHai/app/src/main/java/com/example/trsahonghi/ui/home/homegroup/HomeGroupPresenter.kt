@@ -1,15 +1,14 @@
 package com.example.trsahonghi.ui.home.homegroup
 
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.trsahonghi.api.model.BubbleTea
 import com.example.trsahonghi.base.CommonPresenter
 import com.example.trsahonghi.ui.home.bestselling.BestSellingFragment
 import com.example.trsahonghi.ui.home.listfood.ListFoodFragment
 import com.example.trsahonghi.ui.home.location.LocationFragment
-import com.example.trsahonghi.ui.home.promotion.PromotionFragment
-import com.example.trsahonghi.ui.home.search.SearchFragment
+import com.example.trsahonghi.ui.home.promotion.DiscountFragment
+import com.example.trsahonghi.util.StringUtils
 
 class HomeGroupPresenter(
     private val view: HomeGroupContract.View
@@ -40,18 +39,17 @@ class HomeGroupPresenter(
     override fun getListFragmentHome() {
         _listFragment.value = listOf(
             LocationFragment.newInstance(),
-            SearchFragment.newInstance(),
+//            SearchFragment.newInstance(),
             BestSellingFragment.newInstance(),
-            PromotionFragment.newInstance(),
+            DiscountFragment.newInstance(),
             ListFoodFragment.newInstance()
         )
     }
 
     fun calculateTotalAmount() {
-        _totalAmount.value = _listFood.value?.sumOf {
-            (it.price?.toDoubleOrNull() ?: 0.0) * (it.ingredientType?.quantity?.toDoubleOrNull()
-                ?: 0.0)
-        }?.toString() ?: "0"
+        _totalAmount.value = _listFood.value?.let {
+            StringUtils.calculateTotalPrice(it)
+        } ?: "0"
     }
 
     fun updateQuantity() {

@@ -3,10 +3,14 @@ package com.example.trsahonghi.ui.home.location
 import TokenManager
 import android.Manifest
 import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
 import android.content.pm.PackageManager
 import androidx.core.app.ActivityCompat
 import com.example.trsahonghi.R
 import com.example.trsahonghi.base.BaseDataBindFragment
+import com.example.trsahonghi.base.LocalBroadcastReceiver
+import com.example.trsahonghi.base.OrderEnabledLocalBroadcastManager
 import com.example.trsahonghi.databinding.FragmentLocationBinding
 import com.example.trsahonghi.ui.home.location.map.AddressFragment
 import com.example.trsahonghi.util.Constants
@@ -20,18 +24,37 @@ class LocationFragment :
         fun newInstance() = LocationFragment()
     }
 
+    private val locationReceiver: LocalBroadcastReceiver by lazy {
+        object : LocalBroadcastReceiver() {
+            override fun onReceive(context: Context, intent: Intent) {
+
+                val address =
+                    intent.getStringExtra(Constants.BundleConstants.UPDATE_LOCATION)
+                address?.let {
+                    mPresenter?.setAddress(it)
+                }
+
+            }
+        }
+    }
+
     override fun getLayoutId(): Int = R.layout.fragment_location
 
     override fun initView() {
         mBinding?.apply {
             txtTitle.setOnClickListener {
-                getBaseActivity().replaceFragment(
+                getBaseActivity().addFragment(
                     AddressFragment.newInstance(), R.id.flMain
                 )
             }
 
         }
         mBinding?.view = this
+
+        OrderEnabledLocalBroadcastManager.getInstance(getBaseActivity()).registerReceiver(
+            locationReceiver,
+            IntentFilter(Constants.Actions.NOTIFY_UPDATE_LOCATION)
+        )
 
     }
 
@@ -104,5 +127,15 @@ class LocationFragment :
 
     override fun getViewContext(): Context? {
         return context
+    }
+
+    override fun onDestroy() {
+        try {
+            OrderEnabledLocalBroadcastManager.getInstance(getBaseActivity())
+                .unregisterReceiver(locationReceiver)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        super.onDestroy()
     }
 }

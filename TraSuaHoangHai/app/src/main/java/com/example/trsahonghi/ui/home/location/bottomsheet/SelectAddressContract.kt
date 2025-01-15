@@ -2,7 +2,6 @@ package com.example.trsahonghi.ui.home.location.bottomsheet
 
 import android.content.Context
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.example.trsahonghi.api.model.address.QuanHuyen
 import com.example.trsahonghi.api.model.address.TinhTp
 import com.example.trsahonghi.api.model.address.XaPhuong

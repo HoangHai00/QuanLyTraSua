@@ -54,10 +54,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="@{StringUtils.INSTANCE.formatMoney(bubbleTea.price)}"
+            android:layout_marginEnd="20dp"
+            android:text="@{StringUtils.INSTANCE.calculateItemPrice(bubbleTea)}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="10000đ" />
+            tools:text="10000" />
+
 
         <TextView
             android:id="@+id/txtQuantity"
@@ -90,6 +92,15 @@
             android:layout_marginStart="4dp"
             android:text="@string/txt_x"
             app:layout_constraintStart_toEndOf="@+id/txtQuantity"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            style="@style/text_body_md_strong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="@string/txt_d"
+            app:layout_constraintStart_toEndOf="@+id/txtGia"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

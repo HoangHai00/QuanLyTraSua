@@ -1,4 +1,4 @@
-package com.example.trsahonghi.ui.login
+package com.example.trsahonghi.ui.login.user
 
 import android.content.Context
 import android.text.InputType
