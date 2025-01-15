@@ -29,10 +29,10 @@
             android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="8dp"
             android:adjustViewBounds="true"
             android:background="@drawable/custom_btn_back_tt"
             android:onClick="@{() -> view.onBackClicked()}"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_back" />
@@ -40,10 +40,10 @@
 
         <TextView
             android:id="@+id/txtTitle"
-            style="@style/text_body_md_default"
+            style="@style/text_body_md_strong"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="80dp"
+            android:layout_marginStart="60dp"
             android:layout_marginTop="4dp"
             android:text="@string/your_location"
             app:layout_constraintStart_toStartOf="parent"
@@ -63,25 +63,33 @@
             android:id="@+id/ivSetting"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_marginEnd="12dp"
             android:adjustViewBounds="true"
             android:background="@drawable/custom_btn_back_tt"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_menu" />
 
         <TextView
-            android:id="@+id/textView14"
-            style="@style/text_body_md_strong"
-            android:layout_width="wrap_content"
+            android:id="@+id/tvLocation"
+            style="@style/text_body_md_default"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="80dp"
-            android:text="@string/address"
-
-            android:textSize="24sp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="80dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="@{presenter.address()}"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/txtTitle"
+            tools:text="@string/address" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

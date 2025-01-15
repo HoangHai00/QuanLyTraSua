@@ -2,12 +2,12 @@ package com.example.trsahonghi.util
 
 object Constants {
     object Actions {
-        const val NOTIFY_SHOW_LOADING = "notify_show_loading"
-        const val NOTIFY_HIDE_LOADING = "notify-hide-loading"
-        const val NOTIFY_SHOW_CART = "notify_show_card"
-        const val NOTIFY_HIDE_CART = "notify_hide_card"
-        const val NOTIFY_GO_HOME = "notify_go_home"
-        const val NOTIFY_LIST_FOOD= "notify_list_food"
+        const val NOTIFY_SHOW_LOADING = "NOTIFY_SHOW_LOADING"
+        const val NOTIFY_HIDE_LOADING = "NOTIFY_HIDE_LOADING"
+        const val NOTIFY_SHOW_CART = "NOTIFY_SHOW_CARD"
+        const val NOTIFY_HIDE_CART = "NOTIFY_HIDE_CARD"
+        const val NOTIFY_GO_HOME = "NOTIFY_GO_HOME"
+        const val NOTIFY_LIST_FOOD = "NOTIFY_LIST_FOOD"
     }
 
     object BundleConstants {
@@ -21,5 +21,10 @@ object Constants {
     object Type {
         const val SIZE_M = "M"
         const val SIZE_L = "L"
+    }
+
+    object KEY {
+        const val KEY_ADDRESS = "KEY_ADDRESS"
+
     }
 }
