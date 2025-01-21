@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginTop="4dp"
-            android:text="@{bubbleTea.nameTea}"
+            android:text="@{bubbleTea.description}"
             app:layout_constraintStart_toEndOf="@+id/ivTea"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Tên Món" />

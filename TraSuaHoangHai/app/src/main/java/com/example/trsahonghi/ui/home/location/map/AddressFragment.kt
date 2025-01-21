@@ -1,7 +1,10 @@
 package com.example.trsahonghi.ui.home.location.map
 
+import android.content.Intent
+import androidx.activity.OnBackPressedCallback
 import com.example.trsahonghi.R
 import com.example.trsahonghi.base.BaseDataBindFragment
+import com.example.trsahonghi.base.OrderEnabledLocalBroadcastManager
 import com.example.trsahonghi.databinding.FragmentAddressBinding
 import com.example.trsahonghi.ui.home.listfood.bottomsheet.IngredientTypeBottomSheet
 import com.example.trsahonghi.ui.home.location.bottomsheet.SelectAddressBottomSheet
@@ -19,7 +22,7 @@ class AddressFragment : BaseDataBindFragment<FragmentAddressBinding, AddressCont
 
     override fun initView() {
         mBinding?.apply {
-            toolbar.setOnBackClickListener{
+            toolbar.setOnBackClickListener {
                 onBackClick()
             }
             btnConfirm.setOnClickListener {
@@ -30,6 +33,7 @@ class AddressFragment : BaseDataBindFragment<FragmentAddressBinding, AddressCont
                         it1
                     )
                 }
+                sendBocatLocation()
                 onBackClick()
 
             }
@@ -39,6 +43,14 @@ class AddressFragment : BaseDataBindFragment<FragmentAddressBinding, AddressCont
             ivAddress.setOnClickListener {
                 showBottomSheet()
             }
+
+            requireActivity().onBackPressedDispatcher.addCallback(
+                viewLifecycleOwner,
+                object : OnBackPressedCallback(true) {
+                    override fun handleOnBackPressed() {
+                        onBackClick()
+                    }
+                })
 
         }
     }
@@ -59,6 +71,15 @@ class AddressFragment : BaseDataBindFragment<FragmentAddressBinding, AddressCont
 
         selectAddressBottomSheet.show(parentFragmentManager, IngredientTypeBottomSheet.TAG)
 
+    }
+
+    private fun sendBocatLocation() {
+        val broadcastIntent = Intent(Constants.Actions.NOTIFY_UPDATE_LOCATION).apply {
+            putExtra(Constants.BundleConstants.UPDATE_LOCATION, mPresenter?.address()?.value)
+        }
+        context?.let {
+            OrderEnabledLocalBroadcastManager.getInstance(it).sendBroadcast(broadcastIntent)
+        }
     }
 
     override fun getStringRes(id: Int): String {
