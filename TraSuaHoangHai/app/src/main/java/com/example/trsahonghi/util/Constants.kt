@@ -20,6 +20,7 @@ object Constants {
         const val SPARSE_STATE_KEY = "SPARSE_STATE_KEY"
         const val ITEM = "ITEM"
 
+
     }
 
     object Type {
@@ -29,6 +30,7 @@ object Constants {
 
     object KEY {
         const val KEY_ADDRESS = "KEY_ADDRESS"
+        const val KEY_PHONE_NUMBER = "KEY_PHONE_NUMBER"
 
     }
 }

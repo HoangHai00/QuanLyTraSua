@@ -81,6 +81,7 @@ class LocationFragment :
             listener = object : AlertDialogListener {
                 override fun onAccept() {
                     context?.let { TokenManager.saveToken(it, "") }
+                    SharedPreferencesUtils.put(Constants.KEY.KEY_PHONE_NUMBER, "")
                     getBaseActivity().onBackFragment()
                 }
 

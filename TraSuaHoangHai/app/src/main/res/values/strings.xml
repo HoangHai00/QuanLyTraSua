@@ -9,6 +9,7 @@
 
     <string name="title_login">Đăng Nhập</string>
     <string name="title_register">Đăng Ký tài khoản</string>
+    <string name="title_info">Thông tin</string>
     <string name="restaurant_login_title">Đăng nhập cho nhà hàng</string>
     <string name="title_payment">Thanh toán</string>
     <string name="register">Đăng Ký</string>
@@ -53,6 +54,7 @@
 
     // notification
     <string name="login_success">Đăng nhập thành công</string>
+    <string name="hello_admin">Xin chào admin</string>
     <string name="register_success">Đăng Ký thành công</string>
     <string name="account_already_registered">Số điện thoại đã được đăng ký</string>
     <string name="in_valid_full_name">Họ và tên phải có ít nhất 6 kí tự</string>
@@ -120,6 +122,32 @@
     <string name="store_name">Tên cửa hàng</string>
     <string name="saving_redeem_amount_new">Số tiền</string>
     <string name="content">Nội dung</string>
+    <string name="order_history">Lịch sử đơn</string>
+    <string name="change_password">Đổi mật khẩu</string>
+
+    <string name="new_password">Mật khẩu mới</string>
+    <string name="enter_new_password">Nhập mật khẩu mới</string>
+    <string name="old_password">Mật khẩu cũ</string>
+    <string name="enter_old_password">Nhập mật khẩu cũ</string>
+    <string name="order_list">Danh sách đơn</string>
+    <string name="statistics">Thống kê</string>
+    <string name="settings">Cài đặt</string>
+
+    <string name="confirm_order">Xác nhận \n đơn</string>
+    <string name="btn_confirm_order">Xác nhận đơn</string>
+    <string name="shipping_in_progress">Đang giao \n hàng</string>
+    <string name="completed">Hoàn \n thành</string>
+    <string name="canceled">Đã \n hủy</string>
+    <string name="btn_canceled"> Hủy Đơn </string>
+    <string name="last_7_days">7 ngày vừa qua</string>
+    <string name="last_30_days">30 ngày qua</string>
+    <string name="last_1_year">1 năm qua</string>
+    <string name="order_details_title">Chi tiết đơn hàng</string>
+    <string name="order_total">Tổng tiền :</string>
+
+    <string name="order_status_confirmed">Đã xác nhận đơn</string>
+    <string name="order_status_canceled">Đã hủy đơn</string>
+    <string name="order_status_completed">Hoàn thành</string>
 
 
 </resources>

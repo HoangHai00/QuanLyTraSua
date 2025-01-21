@@ -2,10 +2,12 @@ package com.example.trsahonghi.util
 
 import android.widget.EditText
 import com.example.trsahonghi.api.model.BubbleTea
+import com.example.trsahonghi.api.model.response.RevenueResponse
 import com.google.gson.Gson
 import java.util.regex.Pattern
 import java.text.DecimalFormat
 import java.lang.reflect.Type
+import java.text.Normalizer
 
 object StringUtils {
     private val ACCENTED_MAP: Map<Char, String> = createAccentedMap()
@@ -334,5 +336,14 @@ object StringUtils {
         }
     }
 
+    fun calculateTotalFromStrings(amounts: List<RevenueResponse>): String {
+        return formatMoney(amounts.sumOf { it.tien.toDoubleOrNull() ?: 0.0 }) + "đ"
+    }
+
+    fun fixVietnameseCharacters(input: String): String {
+        // Normalize để chuẩn hóa ký tự Unicode
+        return Normalizer.normalize(input, Normalizer.Form.NFKC)
+            .replace("?", "đ") // Thay thế "?" nếu cần
+    }
 
 }
