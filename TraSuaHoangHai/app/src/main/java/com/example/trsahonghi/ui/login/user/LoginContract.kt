@@ -13,6 +13,7 @@ interface LoginContract {
         fun getStringRes(id: Int): String
         fun getViewContext(): Context?
         fun loginSuccessful()
+        fun loginAdminSuccessful()
         fun openFragment(fragment: Fragment)
     }
 

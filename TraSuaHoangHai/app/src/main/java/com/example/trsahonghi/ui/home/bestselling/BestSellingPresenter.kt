@@ -14,12 +14,8 @@ class BestSellingPresenter(
 
     override fun getListBestSelling() {
         _listBestSelling.value = listOf(
-            PopularItem(R.drawable.ic_best_sell_1, "Bán chạy nhất"),
-            PopularItem(R.drawable.trasuachanchauthachzaizai, "Trà sữa trân châu thạch"),
-            PopularItem(R.drawable.suachuavietquat, "Sữa chua việt quất"),
-            PopularItem(R.drawable.ic_best_sell_1, "Bán chạy nhất"),
-            PopularItem(R.drawable.trasuachanchauthachzaizai, "Trà sữa trân châu thạch"),
-            PopularItem(R.drawable.suachuavietquat, "Sữa chua việt quất")
+            PopularItem(R.drawable.suachuavietquat, "Bán chạy nhất"),
+            PopularItem(R.drawable.sodabacha, "Soda bạc hà"),
         )
     }
 }

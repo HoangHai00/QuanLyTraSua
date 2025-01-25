@@ -16,6 +16,7 @@ import com.example.trsahonghi.ui.home.homegroup.adapter.MarginItemDecoration
 import com.example.trsahonghi.ui.home.homegroup.bottomsheet.CartBottomSheet
 import com.example.trsahonghi.ui.payment.PaymentFragment
 import com.example.trsahonghi.util.Constants
+import com.example.trsahonghi.util.SharedPreferencesUtils
 import com.example.trsahonghi.util.StringUtils
 import com.example.trsahonghi.widget.dialog.AlertDialogListener
 import com.google.gson.reflect.TypeToken
@@ -105,6 +106,7 @@ class HomeGroupFragment :
                         listener = object : AlertDialogListener {
                             override fun onAccept() {
                                 context?.let { TokenManager.saveToken(it, "") }
+                                SharedPreferencesUtils.put(Constants.KEY.KEY_PHONE_NUMBER, "")
                                 getBaseActivity().onBackFragment()
                             }
 

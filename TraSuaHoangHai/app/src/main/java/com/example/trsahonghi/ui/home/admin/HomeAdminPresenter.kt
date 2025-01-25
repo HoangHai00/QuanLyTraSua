@@ -1,4 +1,9 @@
 package com.example.trsahonghi.ui.home.admin
 
-class HomeAdminPresenter {
+import com.example.trsahonghi.base.CommonPresenter
+
+class HomeAdminPresenter(
+    private val view: HomeAdminContract.View
+) : CommonPresenter(), HomeAdminContract.Presenter {
+
 }

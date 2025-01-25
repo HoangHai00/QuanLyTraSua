@@ -2,8 +2,11 @@ package com.example.trsahonghi.ui.login.user
 
 import androidx.lifecycle.MutableLiveData
 import com.example.trsahonghi.R
+import com.example.trsahonghi.api.Config
 import com.example.trsahonghi.api.repository.account.AccountRepository
 import com.example.trsahonghi.base.CommonPresenter
+import com.example.trsahonghi.util.Constants
+import com.example.trsahonghi.util.SharedPreferencesUtils
 
 class LoginPresenter(
     private val view: LoginContract.View,
@@ -36,6 +39,13 @@ class LoginPresenter(
                         )
                     }
                 }
+
+                _account.value?.let {
+                    SharedPreferencesUtils.put(
+                        Constants.KEY.KEY_PHONE_NUMBER,
+                        it
+                    )
+                }
                 view.loginSuccessful()
             },
             onError = {
@@ -46,6 +56,7 @@ class LoginPresenter(
 
     //Đăng nhập bằng token
     override fun loginToken() {
+        val phoneNumber = SharedPreferencesUtils.get(Constants.KEY.KEY_PHONE_NUMBER, "")
         val token = view.getViewContext()?.let { TokenManager.getToken(it) }
 
         if (token.isNullOrEmpty()) return
@@ -61,7 +72,12 @@ class LoginPresenter(
                         )
                     }
                 }
-                view.loginSuccessful()
+                if (phoneNumber == Config.ACCOUNT_ADMIN) {
+                    view.loginAdminSuccessful()
+                } else {
+                    view.loginSuccessful()
+                }
+
             },
             onError = {
 

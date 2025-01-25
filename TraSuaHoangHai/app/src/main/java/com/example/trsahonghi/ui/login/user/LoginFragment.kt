@@ -7,7 +7,9 @@ import com.example.trsahonghi.R
 import com.example.trsahonghi.api.repository.account.AccountRepositoryImpl
 import com.example.trsahonghi.base.BaseDataBindFragment
 import com.example.trsahonghi.databinding.FragmentLoginBinding
+import com.example.trsahonghi.ui.home.admin.HomeAdminFragment
 import com.example.trsahonghi.ui.home.homegroup.HomeGroupFragment
+import com.example.trsahonghi.ui.login.admin.LoginAdminFragment
 import com.example.trsahonghi.ui.register.user.RegisterFragment
 import com.example.trsahonghi.util.CommonToast
 
@@ -36,7 +38,11 @@ class LoginFragment : BaseDataBindFragment<FragmentLoginBinding, LoginContract.P
                 } else {
                     InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
                 }
-                edtPassword.setSelection(edtPassword.text.length)  // Đặt con trỏ cuối text
+                edtPassword.setSelection(edtPassword.text.length)
+            }
+
+            ivLoginAdmin.setOnClickListener {
+                openFragment(LoginAdminFragment.newInstance())
             }
 
 
@@ -79,6 +85,15 @@ class LoginFragment : BaseDataBindFragment<FragmentLoginBinding, LoginContract.P
             R.drawable.ic_checked_green
         )
 
+    }
+
+    override fun loginAdminSuccessful() {
+        openFragment(HomeAdminFragment.newInstance())
+        CommonToast.showToast(
+            requireContext(),
+            getString(R.string.hello_admin),
+            R.drawable.ic_checked_green
+        )
     }
 
     override fun openFragment(fragment: Fragment) {
